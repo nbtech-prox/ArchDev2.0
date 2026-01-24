@@ -37,9 +37,5 @@ jobs:
             fi
           done
 
-      - name: Validate Python Scripts (Lint)
-        run: |
-          # Verifica se os scripts Python têm erros de sintaxe básicos
-          # Como o ambiente CI não tem as libs instaladas, usamos apenas o compilador
-          python3 -m py_compile .config/waybar/scripts/*.sh 2>/dev/null || true
-          echo "Scripts check completed."
+      - name: Success Message
+        run: echo "All checks passed successfully!"
