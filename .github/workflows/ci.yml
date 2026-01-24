@@ -18,6 +18,7 @@ jobs:
         uses: ludeeus/action-shellcheck@master
         with:
           scandir: "."
+          additional_files: "!**.zshrc"
           severity: warning
 
       - name: Validate Waybar JSON

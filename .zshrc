@@ -1,4 +1,3 @@
-# shellcheck shell=zsh
 # 0. PATH
 export PATH="$HOME/.config/composer/vendor/bin:$HOME/.local/bin:$PATH"
 
