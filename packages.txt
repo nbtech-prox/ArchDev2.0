@@ -34,6 +34,7 @@ libgsf
 thunar-volman
 file-roller
 unzip
+nano
 
 # File System Support (Pens & Samba)
 gvfs
@@ -96,7 +97,6 @@ tk
 # Development - Tools
 docker
 docker-compose
-code
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting

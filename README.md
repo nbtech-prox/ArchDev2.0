@@ -97,7 +97,11 @@ O processo é automatizado. Certifique-se de estar em um sistema Arch Linux limp
 *   **Firefox**: Para o visual completo, instale a extensão [Nordic Theme](https://addons.mozilla.org/en-US/firefox/addon/nordic-dark/).
 *   **ZSH**: O setup inclui o Starship. Após instalar, você terá um prompt rápido e informativo.
 *   **Docker**: Execute `sudo usermod -aG docker $USER` e reinicie a sessão para usar Docker sem sudo.
-*   **MariaDB**: Recomendado correr `sudo mariadb-secure-installation` após a instalação para configurar a senha de root.
+*   **MariaDB**: Execute `sudo mariadb-secure-installation`. Siga estes passos:
+    1.  `Enter current password`: Aperte **Enter**.
+    2.  `Switch to unix_socket authentication`: Aperte **n**.
+    3.  `Change the root password?`: Aperte **Y** e defina sua senha.
+    4.  Para as restantes perguntas (`Remove anonymous users`, `Disallow root login remotely`, `Remove test database`), aperte **Y**.
 
 ---
 
