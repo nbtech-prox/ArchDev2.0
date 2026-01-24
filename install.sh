@@ -34,9 +34,9 @@ if ! command -v yay &> /dev/null; then
 
     rm -rf /tmp/yay_install
     git clone https://aur.archlinux.org/yay.git /tmp/yay_install
-    cd /tmp/yay_install
+    cd /tmp/yay_install || exit
     makepkg -si --noconfirm
-    cd -
+    cd - || exit
     rm -rf /tmp/yay_install
 else
     echo -e "${GREEN}--> yay já está instalado.${NC}"

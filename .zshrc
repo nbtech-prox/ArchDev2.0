@@ -1,3 +1,4 @@
+# shellcheck shell=zsh
 # 0. PATH
 export PATH="$HOME/.config/composer/vendor/bin:$HOME/.local/bin:$PATH"
 
@@ -13,8 +14,8 @@ _comp_options+=(globdots)		# Include hidden files.
 
 # 2. HISTORY
 HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
+export HISTSIZE=10000
+export SAVEHIST=10000
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
