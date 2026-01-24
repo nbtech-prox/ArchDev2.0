@@ -9,6 +9,9 @@
 ![Arch Linux](https://img.shields.io/badge/Arch-Linux-blue?logo=arch-linux&logoColor=white)
 ![Hyprland](https://img.shields.io/badge/Hyprland-Wayland-green)
 ![Theme](https://img.shields.io/badge/Theme-Nord-88C0D0)
+![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?logo=laravel&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-3.x-000000?logo=flask&logoColor=white)
+![Flet](https://img.shields.io/badge/Flet-Latest-007FFF?logo=flutter&logoColor=white)
 
 **Uma configuração profissional e minimalista para Arch Linux, otimizada para desenvolvedores e hardware AMD.**
 
@@ -38,7 +41,7 @@
 - **Terminal**: Kitty com ZSH + Starship Prompt
 
 ### Development Ready
-- **PHP**: Laravel Installer, Composer, PHP-GD, PHP-Intl, PHP-SQLite, PHP-MySQL.
+- **PHP**: Laravel 12, Composer, **PHP 8.4**, PHP-GD, PHP-Intl, PHP-OPCache, PHP-MySQL.
 - **Python**: **Poetry** (Gerenciamento de dependências), Flask, Flet.
 - **Database**: MariaDB (MySQL), SQLite.
 - **Tooling**: Docker & Docker Compose, Node.js & NPM.

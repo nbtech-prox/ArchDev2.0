@@ -78,16 +78,19 @@ btop
 
 # Development - Web (Laravel)
 php
+php-fpm
 php-gd
 php-intl
+php-opcache
 php-sqlite
 php-redis
-php-mysql
+php-imagick
 composer
 nodejs
 npm
 sqlite
 mariadb
+zip
 
 # Development - Python (Flask/Flet)
 python

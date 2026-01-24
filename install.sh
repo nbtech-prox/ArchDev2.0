@@ -131,6 +131,24 @@ fi
 echo -e "${GREEN}--> Ativando MariaDB...${NC}"
 sudo systemctl enable --now mariadb
 
+# Ativar Extensões PHP (Necessário no Arch)
+echo -e "${GREEN}--> Ativando extensões PHP para Laravel 12...${NC}"
+PHP_INI="/etc/php/php.ini"
+if [ -f "$PHP_INI" ]; then
+    # Ativa extensões comuns retirando o ';' da frente
+    sudo sed -i 's/;extension=bcmath/extension=bcmath/' $PHP_INI
+    sudo sed -i 's/;extension=calendar/extension=calendar/' $PHP_INI
+    sudo sed -i 's/;extension=exif/extension=exif/' $PHP_INI
+    sudo sed -i 's/;extension=gd/extension=gd/' $PHP_INI
+    sudo sed -i 's/;extension=iconv/extension=iconv/' $PHP_INI
+    sudo sed -i 's/;extension=intl/extension=intl/' $PHP_INI
+    sudo sed -i 's/;extension=mysqli/extension=mysqli/' $PHP_INI
+    sudo sed -i 's/;extension=pdo_mysql/extension=pdo_mysql/' $PHP_INI
+    sudo sed -i 's/;extension=pdo_sqlite/extension=pdo_sqlite/' $PHP_INI
+    sudo sed -i 's/;zend_extension=opcache/zend_extension=opcache/' $PHP_INI
+    echo "Extensões PHP ativadas."
+fi
+
 # Configurar Serviços de Audio no User
 echo -e "${GREEN}--> Ativando Pipewire (Audio)...${NC}"
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
@@ -153,7 +171,7 @@ fi
 
 # Configurar Laravel
 if command -v composer &> /dev/null; then
-    echo -e "${GREEN}--> Instalando Laravel Installer...${NC}"
+    echo -e "${GREEN}--> Instalando/Atualizando Laravel Installer via Composer...${NC}"
     composer global require laravel/installer --quiet
 fi
 
