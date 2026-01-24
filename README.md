@@ -61,7 +61,7 @@ Este setup inclui um script de detecção automática de projetos. A Waybar iden
 
 ## 🚀 Instalação
 
-O processo é automatizado. Certifique-se de estar em um sistema Arch Linux limpo ou com Hyprland básico.
+**Pré-requisito**: É necessário ter o **Arch Linux (Minimal/Base)** já instalado no seu sistema antes de prosseguir. Recomenda-se uma instalação limpa via `archinstall`.
 
 1.  **Clone o repositório**:
     ```bash
