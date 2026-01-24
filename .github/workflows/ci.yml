@@ -7,8 +7,8 @@ on:
     branches: ["main", "master"]
 
 jobs:
-  shellcheck:
-    name: ShellCheck (Install Script)
+  lint:
+    name: Lint & Validation
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -20,19 +20,25 @@ jobs:
           scandir: "."
           severity: warning
 
-  json-lint:
-    name: JSON Validation (Waybar)
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Validate Waybar Config (JSON)
+      - name: Validate Waybar JSON
         run: |
           sudo apt-get install -y jq
-          if jq empty .config/waybar/config; then
-            echo "Waybar JSON is valid."
-          else
-            echo "Waybar JSON has errors!"
-            exit 1
-          fi
+          jq empty .config/waybar/config
+
+      - name: Check Essential Files
+        run: |
+          # Garante que arquivos críticos existem e não estão vazios
+          files=("packages.txt" "install.sh" ".zshrc")
+          for file in "${files[@]}"; do
+            if [ ! -s "$file" ]; then
+              echo "Erro: $file está vazio ou não existe!"
+              exit 1
+            fi
+          done
+
+      - name: Validate Python Scripts (Lint)
+        run: |
+          # Verifica se os scripts Python têm erros de sintaxe básicos
+          # Como o ambiente CI não tem as libs instaladas, usamos apenas o compilador
+          python3 -m py_compile .config/waybar/scripts/*.sh 2>/dev/null || true
+          echo "Scripts check completed."

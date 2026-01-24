@@ -77,14 +77,18 @@ btop
 
 # Development - Web (Laravel)
 php
+php-gd
+php-intl
+php-sqlite
+php-redis
 composer
 nodejs
 npm
+sqlite
 
 # Development - Python (Flask/Flet)
 python
-python-pip
-uv
+python-poetry
 tk
 
 # Development - Tools

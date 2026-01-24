@@ -1,55 +1,102 @@
-# ArchDev - Hyprland Nord Setup
+# ❄️ ArchDev - Premium Hyprland Setup
 
 ![Preview](assets/preview.png)
 
-![License](https://img.shields.io/badge/License-MIT-blue.svg) ![Arch](https://img.shields.io/badge/Arch-Linux-blue) ![Wayland](https://img.shields.io/badge/Wayland-100%25-green)
+<div align="center">
 
-Configuração profissional e minimalista para **Arch Linux** com **Hyprland**, focada em desempenho (AMD Desktop), estética (Nord Theme) e produtividade (Dev).
+![License](https://img.shields.io/badge/License-MIT-blue.svg) 
+![CI Status](https://github.com/nbtech-prox/ArchDev/actions/workflows/ci.yml/badge.svg)
+![Arch Linux](https://img.shields.io/badge/Arch-Linux-blue?logo=arch-linux&logoColor=white)
+![Hyprland](https://img.shields.io/badge/Hyprland-Wayland-green)
+![Theme](https://img.shields.io/badge/Theme-Nord-88C0D0)
 
-## ✨ Características
+**Uma configuração profissional e minimalista para Arch Linux, otimizada para desenvolvedores e hardware AMD.**
 
-*   **100% Wayland Puro**: Sem dependências legadas de X11.
-*   **Tema Nord Consistente**: Todo o sistema unificado na paleta Nord (GTK, Qt, Waybar, Wofi, Terminal).
-*   **Workflow Pro**: Navegação Hyprland estilo Vim/Carrossel e gestão de janelas avançada.
-*   **Stack Dev Pronta**: PHP/Laravel, Python/Flask, Docker, ZSH (Powerline/Starship).
-*   **Otimizado para AMD**: Variáveis de ambiente configuradas para drivers Mesa/Radeonsi.
+[Instalação](#-instalação) • [Stack Dev](#-stack-tecnológica) • [Atalhos](#-atalhos-principais) • [Inteligência](#-waybar-inteligente)
+
+</div>
+
+---
+
+## ✨ Características de Elite
+
+*   **⚡ Performance AMD**: Configurado especificamente para drivers Mesa/Radeonsi com variáveis de ambiente otimizadas.
+*   **🎨 Estética Nord**: Interface unificada usando a paleta Nord em GTK3/4, Qt5/6, Waybar, Kitty e Wofi.
+*   **⌨️ Workflow Vim-Style**: Gestão de janelas fluida com navegação em carrossel e workspaces dinâmicos.
+*   **🚀 Stack Dev Moderna**: Ambiente pronto para Laravel (PHP 8.x) e Python (Poetry/Flask/Flet) com Docker integrado.
+*   **🌐 100% Wayland**: Experiência moderna, sem rasgos de tela (screen tearing) e com animações suaves.
+
+---
+
+## 🛠️ Stack Tecnológica
+
+### Core System
+- **Window Manager**: Hyprland
+- **Bar**: Waybar (Customizada)
+- **Launcher**: Wofi (Nord Theme)
+- **Notificações**: Dunst
+- **Terminal**: Kitty com ZSH + Starship Prompt
+
+### Development Ready
+- **PHP**: Laravel Installer, Composer, PHP-GD, PHP-Intl, PHP-SQLite.
+- **Python**: **Poetry** (Gerenciamento de dependências), Flask, Flet.
+- **Tooling**: Docker & Docker Compose, Node.js & NPM, SQLite.
+
+---
+
+## 🧠 Waybar Inteligente
+
+Este setup inclui um script de detecção automática de projetos. A Waybar identifica em qual ambiente você está trabalhando baseado na janela ativa:
+
+*   🟥 **Laravel**: Detectado via `artisan`.
+*   🟦 **Flet**: Detectado via `app.py` / `run.py`.
+*   🧪 **Flask**: Detectado via `main.py`.
+*   🐍 **Python/Poetry**: Detectado via `pyproject.toml`.
+
+---
 
 ## 🚀 Instalação
 
-1.  Clone este repositório:
+O processo é automatizado. Certifique-se de estar em um sistema Arch Linux limpo ou com Hyprland básico.
+
+1.  **Clone o repositório**:
     ```bash
     git clone https://github.com/nbtech-prox/ArchDev.git
     cd ArchDev
     ```
 
-2.  Dê permissão e execute o instalador (como user normal, **não** root):
+2.  **Execute o instalador**:
     ```bash
     chmod +x install.sh
     ./install.sh
     ```
 
-> O script irá instalar o `yay`, pacotes necessários, configurar temas e copiar as dotfiles.
+> **Aviso**: O script instalará o `yay` (se não existir), todas as dependências do `packages.txt` e configurará seus arquivos de sistema (`dotfiles`).
+
+---
 
 ## ⌨️ Atalhos Principais
 
 | Tecla | Ação |
 | :--- | :--- |
-| `Super + Enter` | Abrir Terminal |
-| `Super + B` | Abrir Firefox |
+| `Super + Enter` | Abrir Terminal (Kitty) |
+| `Super + B` | Abrir Browser (Firefox) |
 | `Super + E` | Abrir Ficheiros (Thunar) |
 | `Super + W` | Menu de Apps (Wofi) |
-| `Super + Q` | Fechar Janela |
-| `Super + X` | Sair da Sessão |
-| `Super + Esc` | Bloquear Ecrã |
+| `Super + Q` | Fechar Janela Ativa |
+| `Super + X` | Menu de Saída (wlogout) |
+| `Super + Esc` | Bloquear Ecrã (hyprlock) |
 | `PrintScreen` | Screenshot (Região -> Clipboard) |
-| `Super + Tab` | Alternar Workspace (Anterior) |
-| `Super + Ctrl + Setas` | Navegar Workspaces (Carrossel) |
+| `Super + Ctrl + Setas` | Navegar Workspaces |
 
-## 🛠️ Stack Tecnológica
-*   **Core**: Hyprland, Waybar, Wofi, Dunst
-*   **Terminal**: Kitty + ZSH + Starship + Fastfetch
-*   **Dev**: PHP 8.x, Python 3.x, Docker, VS Code
+---
 
 ## 🎨 Notas de Aparência
-*   **Firefox**: Instale a extensão oficial [Nordic Theme](https://addons.mozilla.org/en-US/firefox/addon/nordic-dark/) para completar o visual.
-*   O script tenta aplicar automaticamente o `user.js` para forçar o Firefox a usar temas GTK.
+
+*   **Firefox**: Para o visual completo, instale a extensão [Nordic Theme](https://addons.mozilla.org/en-US/firefox/addon/nordic-dark/).
+*   **ZSH**: O setup inclui o Starship. Após instalar, você terá um prompt rápido e informativo.
+*   **Docker**: Após a instalação, execute `sudo usermod -aG docker $USER` para usar o Docker sem sudo.
+
+---
+
+<p align="center">Criado com foco em produtividade e elegância. ☕</p>

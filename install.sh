@@ -137,6 +137,18 @@ echo "[Theme]
 Current=Nordic
 " | sudo tee /etc/sddm.conf.d/theme.conf > /dev/null
 
+# Configurar Poetry
+if command -v poetry &> /dev/null; then
+    echo -e "${GREEN}--> Configurando Poetry (Virtualenvs locais)...${NC}"
+    poetry config virtualenvs.in-project true
+fi
+
+# Configurar Laravel
+if command -v composer &> /dev/null; then
+    echo -e "${GREEN}--> Instalando Laravel Installer...${NC}"
+    composer global require laravel/installer --quiet
+fi
+
 # Definir ZSH como Shell padrão
 if [ "$SHELL" != "/usr/bin/zsh" ]; then
     echo -e "${GREEN}--> Definindo ZSH como shell padrão...${NC}"

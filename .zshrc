@@ -1,3 +1,6 @@
+# 0. PATH
+export PATH="$HOME/.config/composer/vendor/bin:$HOME/.local/bin:$PATH"
+
 # Enable Powerlevel10k or Starship instant prompt if needed
 # ...
 
@@ -50,8 +53,16 @@ alias yayinstall='yay -S'
 # Dev Aliases
 alias artisan='php artisan'
 alias serve='php artisan serve'
+alias migrate='php artisan migrate'
+alias fresh='php artisan migrate:fresh --seed'
+alias tinker='php artisan tinker'
 alias py='python'
-alias venv='source venv/bin/activate'
+alias p='poetry'
+alias pr='poetry run'
+alias ps='poetry shell'
+alias pa='poetry add'
+alias flet-run='poetry run flet run'
+alias flask-dev='export FLASK_DEBUG=1 && poetry run flask run'
 
 # 6. STARSHIP
 fastfetch
