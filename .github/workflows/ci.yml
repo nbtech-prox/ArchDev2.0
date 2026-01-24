@@ -1,0 +1,38 @@
+name: CI - Quality Check
+
+on:
+  push:
+    branches: ["main", "master"]
+  pull_request:
+    branches: ["main", "master"]
+
+jobs:
+  shellcheck:
+    name: ShellCheck (Install Script)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Run ShellCheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: "."
+          severity: warning
+
+  json-lint:
+    name: JSON Validation (Waybar)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Validate Waybar Config (JSON)
+        run: |
+          sudo apt-get install -y jq
+          if jq empty .config/waybar/config; then
+            echo "Waybar JSON is valid."
+          else
+            echo "Waybar JSON has errors!"
+            exit 1
+          fi

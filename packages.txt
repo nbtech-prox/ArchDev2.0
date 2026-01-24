@@ -1,0 +1,100 @@
+# Hyprland Core
+hyprland
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+polkit-kde-agent
+qt5-wayland
+qt6-wayland
+kvantum
+hyprlock
+hypridle
+wlogout
+qt5ct
+qt6ct
+nordic-theme
+nordic-wallpapers
+papirus-icon-theme
+arc-gtk-theme
+sddm
+sddm-nordic-theme-git
+
+# Interface & Tools
+waybar
+kitty
+firefox
+wofi
+dunst
+swww
+udiskie
+thunar
+tumbler
+ffmpegthumbnailer
+poppler-glib
+libgsf
+thunar-volman
+file-roller
+unzip
+
+# File System Support (Pens & Samba)
+gvfs
+gvfs-smb
+ntfs-3g
+dosfstools
+exfatprogs
+
+# AMD Graphics
+mesa
+vulkan-radeon
+libva-mesa-driver
+mesa-vdpau
+
+# Fonts & Appearance
+ttf-jetbrains-mono-nerd
+noto-fonts
+noto-fonts-emoji
+nwg-look
+papirus-icon-theme
+bibata-cursor-theme
+
+# Audio & Network
+pipewire
+pipewire-pulse
+pipewire-alsa
+wireplumber
+network-manager-applet
+blueman
+
+# Utilities
+grim
+slurp
+wl-clipboard
+cliphist
+hyprpicker
+playerctl
+fastfetch
+pacman-contrib
+btop
+
+# Development - Web (Laravel)
+php
+composer
+nodejs
+npm
+
+# Development - Python (Flask/Flet)
+python
+python-pip
+uv
+tk
+
+# Development - Tools
+docker
+docker-compose
+code
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+zsh-completions
+starship
+git
+base-devel

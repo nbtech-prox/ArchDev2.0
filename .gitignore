@@ -1,0 +1,33 @@
+# System
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.log
+
+# Cache & Build
+.cache/
+.local/
+node_modules/
+vendor/
+venv/
+__pycache__/
+*.pyc
+
+# IDEs
+.vscode/
+.idea/
+
+# Auth & Secrets (Safety first!)
+.ssh/
+.gnupg/
+id_rsa
+id_rsa.pub
+*.pem
+.env
+
+# Arch specific
+pkg/
+src/
+*.pkg.tar.zst
+yay_install/
