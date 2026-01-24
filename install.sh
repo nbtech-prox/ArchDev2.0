@@ -123,6 +123,14 @@ echo -e "${GREEN}--> Ativando Rede e Bluetooth...${NC}"
 sudo systemctl enable NetworkManager
 sudo systemctl enable bluetooth
 
+# Configurar MariaDB (Base de Dados)
+if [ ! -d "/var/lib/mysql/mysql" ]; then
+    echo -e "${GREEN}--> Inicializando MariaDB pela primeira vez...${NC}"
+    sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+fi
+echo -e "${GREEN}--> Ativando MariaDB...${NC}"
+sudo systemctl enable --now mariadb
+
 # Configurar Serviços de Audio no User
 echo -e "${GREEN}--> Ativando Pipewire (Audio)...${NC}"
 systemctl --user enable --now pipewire pipewire-pulse wireplumber

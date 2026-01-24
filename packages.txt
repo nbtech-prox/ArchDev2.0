@@ -81,10 +81,12 @@ php-gd
 php-intl
 php-sqlite
 php-redis
+php-mysql
 composer
 nodejs
 npm
 sqlite
+mariadb
 
 # Development - Python (Flask/Flet)
 python

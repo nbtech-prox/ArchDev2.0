@@ -38,9 +38,10 @@
 - **Terminal**: Kitty com ZSH + Starship Prompt
 
 ### Development Ready
-- **PHP**: Laravel Installer, Composer, PHP-GD, PHP-Intl, PHP-SQLite.
+- **PHP**: Laravel Installer, Composer, PHP-GD, PHP-Intl, PHP-SQLite, PHP-MySQL.
 - **Python**: **Poetry** (Gerenciamento de dependências), Flask, Flet.
-- **Tooling**: Docker & Docker Compose, Node.js & NPM, SQLite.
+- **Database**: MariaDB (MySQL), SQLite.
+- **Tooling**: Docker & Docker Compose, Node.js & NPM.
 
 ---
 
@@ -95,7 +96,8 @@ O processo é automatizado. Certifique-se de estar em um sistema Arch Linux limp
 
 *   **Firefox**: Para o visual completo, instale a extensão [Nordic Theme](https://addons.mozilla.org/en-US/firefox/addon/nordic-dark/).
 *   **ZSH**: O setup inclui o Starship. Após instalar, você terá um prompt rápido e informativo.
-*   **Docker**: Após a instalação, execute `sudo usermod -aG docker $USER` para usar o Docker sem sudo.
+*   **Docker**: Execute `sudo usermod -aG docker $USER` e reinicie a sessão para usar Docker sem sudo.
+*   **MariaDB**: Recomendado correr `sudo mariadb-secure-installation` após a instalação para configurar a senha de root.
 
 ---
 
