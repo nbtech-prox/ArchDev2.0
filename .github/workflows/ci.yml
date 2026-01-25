@@ -24,7 +24,7 @@ jobs:
       - name: Validate Waybar JSON
         run: |
           sudo apt-get install -y jq
-          jq empty .config/waybar/config
+          jq empty waybar/.config/waybar/config
 
       - name: Check Essential Files
         run: |

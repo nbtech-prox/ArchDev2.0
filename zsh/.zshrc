@@ -50,6 +50,11 @@ alias update='sudo pacman -Syu'
 alias remove='sudo pacman -Rns'
 alias yayinstall='yay -S'
 
+# v2.0 Aliases
+alias nv='nvim'
+alias edit='nvim'
+alias reload-config='cd ~/ArchDev2.0 && stow -R * && cd -'
+
 # Dev Aliases
 alias artisan='php artisan'
 alias serve='php artisan serve'

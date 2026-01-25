@@ -1,111 +1,74 @@
-# ❄️ ArchDev - Premium Hyprland Setup
+# ❄️ ArchDev2.0 - The Elite Developer Environment
 
 ![Preview](assets/preview.png)
 
 <div align="center">
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg) 
-![CI Status](https://github.com/nbtech-prox/ArchDev/actions/workflows/ci.yml/badge.svg)
-![Arch Linux](https://img.shields.io/badge/Arch-Linux-blue?logo=arch-linux&logoColor=white)
-![Hyprland](https://img.shields.io/badge/Hyprland-Wayland-green)
-![Theme](https://img.shields.io/badge/Theme-Nord-88C0D0)
-![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?logo=laravel&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-3.x-000000?logo=flask&logoColor=white)
-![Flet](https://img.shields.io/badge/Flet-Latest-007FFF?logo=flutter&logoColor=white)
+![CI Status](https://github.com/nbtech-prox/ArchDev2.0/actions/workflows/ci.yml/badge.svg)
+![Version](https://img.shields.io/badge/Version-2.0-88C0D0)
+![Strategy](https://img.shields.io/badge/Strategy-GNU_Stow-green)
 
-**Uma configuração profissional e minimalista para Arch Linux, otimizada para desenvolvedores e hardware AMD.**
+**Uma arquitetura de elite para Arch Linux. Modular, resiliente e focada em automação extrema.**
 
-[Instalação](#-instalação) • [Stack Dev](#-stack-tecnológica) • [Atalhos](#-atalhos-principais) • [Inteligência](#-waybar-inteligente)
+[Instalação](#-instalação) • [Neovim Pro](#-neovim-pro-ide) • [Resiliência](#-segurança--resiliência) • [v1.0 (Legacy)](https://github.com/nbtech-prox/ArchDev/tree/v1.0)
 
 </div>
 
 ---
 
-## ✨ Características de Elite
+## ✨ O que há de novo na v2.0?
 
-*   **⚡ Performance AMD**: Configurado especificamente para drivers Mesa/Radeonsi com variáveis de ambiente otimizadas.
-*   **🎨 Estética Nord**: Interface unificada usando a paleta Nord em GTK3/4, Qt5/6, Waybar, Kitty e Wofi.
-*   **⌨️ Workflow Vim-Style**: Gestão de janelas fluida com navegação em carrossel e workspaces dinâmicos.
-*   **🚀 Stack Dev Moderna**: Ambiente pronto para Laravel (PHP 8.x) e Python (Poetry/Flask/Flet) com Docker integrado.
-*   **🌐 100% Wayland**: Experiência moderna, sem rasgos de tela (screen tearing) e com animações suaves.
-
----
-
-## 🛠️ Stack Tecnológica
-
-### Core System
-- **Window Manager**: Hyprland
-- **Bar**: Waybar (Customizada)
-- **Launcher**: Wofi (Nord Theme)
-- **Notificações**: Dunst
-- **Terminal**: Kitty com ZSH + Starship Prompt
-
-### Development Ready
-- **PHP**: Laravel 12, Composer, **PHP 8.4**, PHP-GD, PHP-Intl, PHP-OPCache, PHP-MySQL.
-- **Python**: **Poetry** (Gerenciamento de dependências), Flask, Flet.
-- **Database**: MariaDB (MySQL), SQLite.
-- **Tooling**: Docker & Docker Compose, Node.js & NPM.
+*   **📦 Gestão via GNU Stow**: Chega de copiar ficheiros. Todo o seu sistema é gerido através de *symlinks* automáticos. Mude algo no repo e o sistema atualiza na hora.
+*   **🛠️ Instalador Interativo (Gum)**: Um script amigável que permite escolher exatamente o que quer instalar (Laravel, Python, Neovim ou Backups).
+*   **⌨️ Neovim Pro Experience**: Uma configuração modular do Neovim (Lazy.nvim) que transforma o seu terminal numa IDE poderosa com suporte LSP para PHP e Python.
+*   **🛡️ Resiliência BTRFS**: Integração com Snapper para snapshots automáticos. Atualizações quebraram o sistema? Volte atrás em segundos.
+*   **🎨 Boot Estilizado**: Tema Plymouth (Arctic Nord) para uma experiência coesa desde o momento em que liga o computador.
 
 ---
 
-## 🧠 Waybar Inteligente
+## 🚀 Instalação (v2.0)
 
-Este setup inclui um script de detecção automática de projetos. A Waybar identifica em qual ambiente você está trabalhando baseado na janela ativa:
+**Pré-requisito**: Arch Linux Minimal (preferencialmente com sistema de ficheiros **BTRFS** se quiser snapshots).
 
-*   🟥 **Laravel**: Detectado via `artisan`.
-*   🟦 **Flet**: Detectado via `app.py` / `run.py`.
-*   🧪 **Flask**: Detectado via `main.py`.
-*   🐍 **Python/Poetry**: Detectado via `pyproject.toml`.
-
----
-
-## 🚀 Instalação
-
-**Pré-requisito**: É necessário ter o **Arch Linux (Minimal/Base)** já instalado no seu sistema antes de prosseguir. Recomenda-se uma instalação limpa via `archinstall`.
-
-1.  **Clone o repositório**:
+1.  **Clone e Entre**:
     ```bash
-    git clone https://github.com/nbtech-prox/ArchDev.git
-    cd ArchDev
+    git clone https://github.com/nbtech-prox/ArchDev2.0.git
+    cd ArchDev2.0
     ```
 
-2.  **Execute o instalador**:
+2.  **Execute o Setup Inteligente**:
     ```bash
     chmod +x install.sh
     ./install.sh
     ```
 
-> **Aviso**: O script instalará o `yay` (se não existir), todas as dependências do `packages.txt` e configurará seus arquivos de sistema (`dotfiles`).
+---
+
+## ⌨️ Neovim Pro IDE
+O ArchDev v2.0 traz o **Neovim** configurado para produção:
+- **Atalho**: `nv` ou `edit`
+- **Leader Key**: `Espaço`
+- **`leader + ff`**: Procurar ficheiros (Telescope)
+- **`leader + fg`**: Pesquisar texto nos ficheiros
+- **`leader + w`**: Salvar rápido
 
 ---
 
-## ⌨️ Atalhos Principais
-
-| Tecla | Ação |
-| :--- | :--- |
-| `Super + Enter` | Abrir Terminal (Kitty) |
-| `Super + B` | Abrir Browser (Firefox) |
-| `Super + E` | Abrir Ficheiros (Thunar) |
-| `Super + W` | Menu de Apps (Wofi) |
-| `Super + Q` | Fechar Janela Ativa |
-| `Super + X` | Menu de Saída (wlogout) |
-| `Super + Esc` | Bloquear Ecrã (hyprlock) |
-| `PrintScreen` | Screenshot (Região -> Clipboard) |
-| `Super + Ctrl + Setas` | Navegar Workspaces |
+## 🛡️ Segurança & Resiliência
+Se selecionou "Segurança BTRFS" no instalador:
+- O **Snapper** criará um ponto de restauro automático cada vez que usar o `pacman` ou `yay`.
+- Os ficheiros de configuração (`dotfiles`) estão agora blindados via **Stow**. Se apagar algo na pasta `HOME` por engano, basta rodar `reload-config` para restaurar tudo.
 
 ---
 
-## 🎨 Notas de Aparência
-
-*   **Firefox**: Para o visual completo, instale a extensão [Nordic Theme](https://addons.mozilla.org/en-US/firefox/addon/nordic-dark/).
-*   **ZSH**: O setup inclui o Starship. Após instalar, você terá um prompt rápido e informativo.
-*   **Docker**: Execute `sudo usermod -aG docker $USER` e reinicie a sessão para usar Docker sem sudo.
-*   **MariaDB**: Execute `sudo mariadb-secure-installation`. Siga estes passos:
-    1.  `Enter current password`: Aperte **Enter**.
-    2.  `Switch to unix_socket authentication`: Aperte **n**.
-    3.  `Change the root password?`: Aperte **Y** e defina sua senha.
-    4.  Para as restantes perguntas (`Remove anonymous users`, `Disallow root login remotely`, `Remove test database`), aperte **Y**.
+## 🛠️ Stack Tecnológica (Modernizada)
+- **Dotfile Manager**: GNU Stow
+- **Editor**: Neovim (LSP, Treesitter, Telescope)
+- **PHP**: Laravel 12 (PHP 8.4)
+- **Python**: Poetry (Virtualenvs automáticos)
+- **Boot**: Systemd-boot + Plymouth Arctic Nord
 
 ---
 
-<p align="center">Criado com foco em produtividade e elegância. ☕</p>
+<p align="center">Elevando o padrão do desenvolvimento em Linux. 🚀🏁</p>

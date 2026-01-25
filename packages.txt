@@ -97,6 +97,22 @@ python
 python-poetry
 tk
 
+# v2.0 Management & Automation
+stow
+gum
+
+# IDE & Editor (Neovim Pro)
+neovim
+lua-language-server
+pyright
+bash-language-server
+
+# System Resilience & Boot
+snapper
+snap-pac
+plymouth
+plymouth-theme-arctic-nord-git
+
 # Development - Tools
 docker
 docker-compose
