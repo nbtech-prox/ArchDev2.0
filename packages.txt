@@ -76,6 +76,7 @@ playerctl
 fastfetch
 pacman-contrib
 btop
+tree-sitter-cli
 
 # Development - Web (Laravel)
 php
@@ -107,6 +108,8 @@ neovim
 lua-language-server
 pyright
 bash-language-server
+rust
+rust-analyzer
 
 # System Resilience & Boot
 snapper
