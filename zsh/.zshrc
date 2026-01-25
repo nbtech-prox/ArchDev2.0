@@ -1,7 +1,9 @@
 # 0. PATH
 export PATH="$HOME/.config/composer/vendor/bin:$HOME/.local/bin:$PATH"
 
-export GEMINI_API_KEY='AIzaSyCamh_GPfG-DNN4SAcwPGvgPVnTLREP2TQ'
+# GEMINI_API_KEY (Generate a new one at aistudio.google.com)
+# To keep it safe, I recommend putting it in a file ~/.gemini_key and sourcing it:
+[ -f ~/.gemini_key ] && source ~/.gemini_key
 
 # Enable Powerlevel10k or Starship instant prompt if needed
 # ...

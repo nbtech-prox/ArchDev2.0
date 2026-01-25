@@ -47,10 +47,11 @@ return {
       provider = "gemini",
       providers = {
         gemini = {
-          -- Modelos Gemini 3 (Selecione descomentando a linha desejada)
-           model = "gemini-3.0-flash",           -- Ultra Rápido
-          -- model = "gemini-3.0-pro-low",         -- Equilibrado
-          -- model = "gemini-3.0-pro-high",           -- Máxima Inteligência (High)
+          -- Modelos Gemini (Modelos estáveis e de alto desempenho)
+           model = "gemini-flash-latest",        -- Estável e Rápido (Recomendado)
+          -- model = "gemini-2.0-flash",           -- Nova Geração 2.0
+          -- model = "gemini-pro-latest",          -- Inteligência Pro
+          -- model = "gemini-3-flash-preview",     -- Experimental 3.0
           
           temperature = 0,                         -- Precisão máxima sem "alucinações"
           max_tokens = 16384,                      -- O máximo permitido para respostas longas

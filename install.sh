@@ -140,6 +140,7 @@ sudo systemctl enable NetworkManager bluetooth sddm ufw
 # Configurar Tema SDDM
 if [ -d "/usr/share/sddm/themes/sugar-candy" ]; then
     echo -e "${GREEN}--> Aplicando tema Sugar Candy ao SDDM...${NC}"
+    sudo mkdir -p /etc/sddm.conf.d
     echo -e "[Theme]\nCurrent=sugar-candy" | sudo tee /etc/sddm.conf.d/theme.conf > /dev/null
 fi
 sudo systemctl enable paccache.timer # Limpeza automática de cache
