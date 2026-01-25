@@ -81,6 +81,7 @@ bat
 fd
 ripgrep
 fzf
+jq
 
 # Development - Web (Laravel)
 php

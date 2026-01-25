@@ -30,9 +30,13 @@ elif [[ -f "$CWD/pyproject.toml" ]]; then
     PROJECT="Python"
 fi
 
-# Detectar ambiente Poetry ou Venv
+# Detectar ambiente Poetry, Venv ou ASDF
 if [[ -n "$VIRTUAL_ENV" ]]; then
     PYENV="($(basename "$VIRTUAL_ENV"))"
+elif [[ -f "$CWD/.tool-versions" ]]; then
+    # Se houver asdf, mostra a versão principal do projeto
+    TOOL_VERSION=$(head -n 1 "$CWD/.tool-versions" | awk '{print $NF}')
+    PYENV="($TOOL_VERSION)"
 elif [[ -f "$CWD/pyproject.toml" ]] && command -v poetry &>/dev/null; then
     # Checa se existe um env do poetry para este diretório
     if cd "$CWD" && poetry env info -p &>/dev/null; then
