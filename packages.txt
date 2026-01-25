@@ -119,6 +119,8 @@ gum
 lazygit
 lazydocker
 ufw
+asdf-vm
+direnv
 
 # System Resilience & Boot
 snapper

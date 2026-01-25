@@ -59,6 +59,19 @@ alias reload-config='cd ~/.dotfiles && stow -R * && cd -'
 alias lg='lazygit'
 alias ld='lazydocker'
 
+# v2.5 Bubble (Hermetic Env Creator)
+bubble() {
+  if [ "$1" = "p" ]; then
+    echo "layout poetry" > .envrc && direnv allow
+    echo "🫧 Bubble: Poetry environment activated."
+  elif [ "$1" = "l" ]; then
+    echo "use asdf" > .envrc && direnv allow
+    echo "🫧 Bubble: PHP/Laravel environment activated."
+  else
+    echo "Usage: bubble [p|l] (p=poetry, l=laravel)"
+  fi
+}
+
 # Dev Aliases
 alias artisan='php artisan'
 alias serve='php artisan serve'
@@ -76,6 +89,10 @@ alias flask-dev='export FLASK_DEBUG=1 && poetry run flask run'
 # 6. MODERN TOOLS & FZF
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
+# 6.1 ASDF & DIRENV (Hermetic Environments)
+[ -f /opt/asdf-vm/asdf.sh ] && source /opt/asdf-vm/asdf.sh
+eval "$(direnv hook zsh)"
 
 # 7. STARSHIP
 fastfetch

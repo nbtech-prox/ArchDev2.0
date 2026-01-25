@@ -162,6 +162,42 @@ Se ativar a segurança BTRFS no instalador:
 
 ---
 
+## 🧬 Ambientes Herméticos (Nix-Style)
+O setup v2.5 introduz o conceito de reprodutibilidade total. Cada projeto pode ter sua própria bolha de ferramentas:
+
+1.  **Versões Múltiplas**: Use o `asdf` para instalar qualquer versão de PHP, Node ou Python.
+2.  **Ativação Automática**: Use o `direnv` para ativar a versão certa assim que entra na pasta (`cd`).
+
+**Exemplo Laravel (PHP):**
+```bash
+asdf local php 8.2.10
+echo "use asdf" > .envrc
+direnv allow
+
+# O terminal já usa PHP 8.2.x. Agora corra:
+php artisan serve
+```
+
+**Exemplo Flask / Flet (Python + Poetry):**
+Graças à integração do `direnv`, você não precisa mais digitar `poetry shell`.
+```bash
+# Na pasta do projeto Flask ou Flet
+asdf local python 3.12.1
+echo "layout poetry" > .envrc  # Ativa o virtualenv do Poetry ao entrar na pasta
+direnv allow
+
+# Agora você pode rodar os comandos direto:
+flask run
+flet run run.py
+```
+
+### 🫧 Automação: O Comando `bubble`
+Para facilitar, o setup inclui o comando `bubble` para criar estas bolhas instantaneamente:
+*   **`bubble l`**: Cria a bolha para **Laravel** (PHP).
+*   **`bubble p`**: Cria a bolha para **Python** (Poetry).
+
+---
+
 <div align="center">
   <p>Elevando o padrão do desenvolvimento em Linux. 🚀🏁</p>
   <sub>Orgulhosamente construído para produtividade.</sub>

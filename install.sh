@@ -125,4 +125,5 @@ systemctl --user enable --now pipewire pipewire-pulse wireplumber
 chsh -s /usr/bin/zsh
 
 echo -e "${BLUE}### ArchDev v2.0 Instalado com Sucesso! ###${NC}"
-gum format "O sistema está pronto. **Reinicie** para aplicar todas as mudanças visuais."
+gum format "O sistema está pronto. **Reinicie** para aplicar todas as mudanças visuais.
+**Dica v2.5**: Para ambientes herméticos, use \`asdf plugin add <name>\` e configure um ficheiro \`.envrc\` com o direnv."
