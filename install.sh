@@ -66,7 +66,7 @@ xdg-user-dirs-update
 echo -e "${GREEN}--> Aplicando Dotfiles via GNU Stow...${NC}"
 
 # Lista de módulos para Stow
-MODULES=("hypr" "waybar" "kitty" "dunst" "wofi" "wlogout" "gtk" "qt" "starship" "nvim" "zsh")
+MODULES=("hypr" "waybar" "kitty" "dunst" "wofi" "wlogout" "gtk" "qt" "starship" "nvim" "zsh" "wireplumber")
 
 for module in "${MODULES[@]}"; do
     if [ -d "$module" ]; then
