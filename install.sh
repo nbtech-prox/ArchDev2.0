@@ -40,6 +40,10 @@ echo -e "${GREEN}--> Instalando pacotes do sistema...${NC}"
 PACKAGES=$(grep -vE "^\s*#" packages.txt | tr "\n" " ")
 yay -S --noconfirm --needed $PACKAGES
 
+# 4.1 Criar pastas padrão do sistema
+echo -e "${GREEN}--> Organizando pastas da Home...${NC}"
+xdg-user-dirs-update
+
 # 5. GESTÃO DE DOTFILES (GNU STOW)
 echo -e "${GREEN}--> Aplicando Dotfiles via GNU Stow...${NC}"
 

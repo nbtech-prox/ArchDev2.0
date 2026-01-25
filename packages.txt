@@ -35,6 +35,7 @@ thunar-volman
 file-roller
 unzip
 nano
+xdg-user-dirs
 
 # File System Support (Pens & Samba)
 gvfs
