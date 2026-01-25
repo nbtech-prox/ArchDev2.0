@@ -96,9 +96,23 @@ O setup v2.0 inclui um ambiente de código no terminal de nível VS Code:
 - **Abrir**: use o comando `nv`.
 - **Leader Key**: `Space`.
 - **LSP**: Autocompletar inteligente para PHP, Python, Lua e Bash.
-- **`Space + ff`**: Procurar ficheiro.
-- **`Space + fg`**: Pesquisar texto global.
-- **`Space + pv`**: Browser de ficheiros lateral.
+- **AI Suite (2026)**: Integrado via `avante.nvim` com suporte total aos modelos **Google Gemini 3.0**.
+- **Comandos**:
+    - **`Space + aa`**: Abrir Chat Lateral IA.
+    - **`Space + ak`**: Pedir alteração de código inline.
+- **Modelos Disponíveis**:
+    - `Gemini 3.0 Pro High` (Default) - Máximo raciocínio.
+    - `Gemini 3.0 Pro Low` - Equilíbrio entre velocidade e inteligência.
+    - `Gemini 3.0 Flash` - Respostas instantâneas e leves.
+
+#### 🔄 Como trocar o modelo de IA
+Para alterar o cérebro da sua IA, siga estes passos:
+1.  Abra o Neovim e procure o ficheiro de plugins: `Space + ff` -> procure por `init.lua`.
+2.  Navegue até à secção `avante.nvim`.
+3.  Descomente a linha do modelo desejado e comente a anterior.
+4.  Grave o ficheiro (`Space + w`) e reinicie o Neovim.
+
+> **Configuração Obrigatória**: Adicione sua chave ao `~/.zshrc`: `export GEMINI_API_KEY='sua_chave_do_google_ai_studio'`.
 
 ---
 

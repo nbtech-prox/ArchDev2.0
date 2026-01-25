@@ -11,7 +11,7 @@ echo -e "${BLUE}### ArchDev v2.0 - Iniciando Setup de Elite ###${NC}"
 
 # 1. VERIFICAÇÃO DE AMBIENTE
 if [ ! -d "hypr" ]; then
-    echo "ERRO: Estrutura v2.0 não detectada. Execute na raiz do repositório ArchDev2.0."
+    echo "ERRO: Estrutura v2.0 não detectada. Execute na raiz da pasta .dotfiles."
     exit 1
 fi
 

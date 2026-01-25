@@ -53,7 +53,7 @@ alias yayinstall='yay -S'
 # v2.0 Aliases
 alias nv='nvim'
 alias edit='nvim'
-alias reload-config='cd ~/ArchDev2.0 && stow -R * && cd -'
+alias reload-config='cd ~/.dotfiles && stow -R * && cd -'
 
 # Dev Aliases
 alias artisan='php artisan'
