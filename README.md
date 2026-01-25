@@ -15,7 +15,7 @@
 **O ambiente definitivo para produtividade extrema em Arch Linux.**
 *Modular, resiliente, esteticamente perfeito e pronto para o desenvolvimento moderno.*
 
-[Instalação](#-instalação) • [Stack Tecnológica](#-stack-tecnológica) • [Fluxo de Trabalho](#-fluxo-de-trabalho--atalhos) • [Neovim Pro](#-neovim-pro-ide)
+[Instalação](#-instalação) • [Stack Tecnológica](#-stack-tecnológica) • [Atalhos do Sistema](#-domínio-do-sistema-guia-de-atalhos-master) • [Neovim Pro](#-neovim-pro-ide-a-nossa-central-dev)
 
 </div>
 
