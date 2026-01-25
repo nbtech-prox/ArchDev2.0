@@ -29,7 +29,7 @@ jobs:
       - name: Check Essential Files
         run: |
           # Garante que arquivos críticos existem e não estão vazios
-          files=("packages.txt" "install.sh" ".zshrc")
+          files=("packages.txt" "install.sh" "zsh/.zshrc")
           for file in "${files[@]}"; do
             if [ ! -s "$file" ]; then
               echo "Erro: $file está vazio ou não existe!"
