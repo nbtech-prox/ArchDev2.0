@@ -30,7 +30,7 @@ fi
 
 # 2. Busca Recursiva do .tool-versions (sobe até 3 níveis)
 SEARCH_DIR="$CWD"
-for i in {1..3}; do
+for _ in {1..3}; do
     if [[ -f "$SEARCH_DIR/.tool-versions" ]]; then
         VERSION=$(head -n 1 "$SEARCH_DIR/.tool-versions" | awk '{print $NF}')
         ENV_INFO="($VERSION)"
