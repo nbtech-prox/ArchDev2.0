@@ -65,8 +65,8 @@ Utilizando uma arquitetura modular baseada em **GNU Stow**, o seu ambiente de tr
 ### 2. Passo-a-passo
 ```bash
 # Clone o repositório
-git clone https://github.com/nbtech-prox/ArchDev2.0.git
-cd ArchDev2.0
+git clone https://github.com/nbtech-prox/ArchDev2.0.git .dotfiles
+cd .dotfiles
 
 # Inicie o setup interativo
 chmod +x install.sh
@@ -106,7 +106,7 @@ O setup v2.0 inclui um ambiente de código no terminal de nível VS Code:
 Se ativar a segurança BTRFS no instalador:
 1.  O sistema cria um snapshot automático **antes e depois** de cada `pacman -S`.
 2.  Caso uma atualização parta o sistema, pode restaurar a versão anterior via `snapper`.
-3.  **Restauro de Dotfiles**: Se apagar a sua pasta `.config` por engano, basta correr `reload-config` na raiz do ArchDev2.0.
+3.  **Restauro de Dotfiles**: Se apagar a sua pasta `.config` por engano, basta correr `reload-config` (que aponta para a sua pasta oculta `~/.dotfiles`).
 
 ---
 
