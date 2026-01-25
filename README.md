@@ -96,6 +96,12 @@ O setup v2.0 inclui um ambiente de código no terminal de nível VS Code:
 - **Abrir**: use o comando `nv`.
 - **Leader Key**: `Space`.
 - **LSP**: Autocompletar inteligente para PHP, Python, Lua e Bash.
+- **Tabs (Bufferline)**: 
+    - **`Tab`**: Próxima Tab.
+    - **`Shift + Tab`**: Tab Anterior.
+    - **`Space + x`**: Fechar Tab atual.
+- **Terminal (Toggleterm)**:
+    - **`Space + t`**: Abrir/Fechar Terminal flutuante integrando.
 - **AI Suite (2026)**: Integrado via `avante.nvim` com suporte total aos modelos **Google Gemini 3.0**.
 - **Comandos**:
     - **`Space + aa`**: Abrir Chat Lateral IA.
@@ -112,7 +118,10 @@ Para alterar o cérebro da sua IA, siga estes passos:
 3.  Descomente a linha do modelo desejado e comente a anterior.
 4.  Grave o ficheiro (`Space + w`) e reinicie o Neovim.
 
-> **Configuração Obrigatória**: Obtenha sua chave no [Google AI Studio](https://aistudio.google.com/app/apikey) e adicione-a ao seu `~/.zshrc`: `export GEMINI_API_KEY='sua_chave_do_google_ai_studio'`.
+> **Configuração Obrigatória**: Obtenha sua chave no [Google AI Studio](https://aistudio.google.com/app/apikey) e adicione-a ao seu `~/.dotfiles/zsh/.zshrc`: `export GEMINI_API_KEY='sua_chave_do_google_ai_studio'`.
+
+#### 🎨 Consistência Visual
+O Neovim usa agora `lualine` (barra de estado) e `bufferline` (tabs) com ícones **Nerd Fonts** de alta qualidade, 100% integrados no tema Nord.
 
 ---
 

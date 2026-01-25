@@ -58,11 +58,50 @@ return {
       },
     },
     build = "make",
-    dependencies = {
+      dependencies = {
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       "MeanderingProgrammer/render-markdown.nvim",
     },
-  }
+  },
+
+  -- UI: Status Line (Nerd Fonts)
+  {
+    "nvim-lualine/lualine.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("lualine").setup({ options = { theme = "nord", icons_enabled = true } })
+    end,
+  },
+
+  -- UI: Tabs / Bufferline
+  {
+    "akinsho/bufferline.nvim",
+    version = "*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("bufferline").setup({
+        options = {
+          diagnostics = "nvim_lsp",
+          show_buffer_icons = true,
+          separator_style = "slant",
+        }
+      })
+    end,
+  },
+
+  -- Terminal: Toggleterm
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    config = function()
+      require("toggleterm").setup({
+        size = 20,
+        open_mapping = [[<c-\>]],
+        direction = "float",
+        float_opts = { border = "curved" },
+      })
+    end,
+  },
 }

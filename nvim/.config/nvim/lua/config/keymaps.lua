@@ -16,3 +16,12 @@ keymap.set("n", "<C-l>", "<C-w>l")
 
 -- Clear search highlights
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "No Highlight" })
+
+-- Tabs / Buffer Navigation
+keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Next Tab" })
+keymap.set("n", "<S-Tab>", ":bprevious<CR>", { desc = "Prev Tab" })
+keymap.set("n", "<leader>x", ":bdelete<CR>", { desc = "Close Tab" })
+
+-- Terminal (Toggleterm)
+keymap.set("n", "<leader>t", ":ToggleTerm<CR>", { desc = "Toggle Terminal" })
+keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit Terminal Mode" })
