@@ -54,6 +54,8 @@ alias yayinstall='yay -S'
 alias nv='nvim'
 alias edit='nvim'
 alias reload-config='cd ~/.dotfiles && stow -R * && cd -'
+alias lg='lazygit'
+alias ld='lazydocker'
 
 # Dev Aliases
 alias artisan='php artisan'

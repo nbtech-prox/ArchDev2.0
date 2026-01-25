@@ -84,13 +84,41 @@ fi
 
 # --- Boot Visual ---
 if [[ $CHOICES == *"Boot Visual"* ]]; then
-    echo -e "${GREEN}--> Configurando Plymouth...${NC}"
+    echo -e "${GREEN}--> Configurando Plymouth (Boot Visual)...${NC}"
     sudo plymouth-set-default-theme arctic-nord
-    # Nota: O usuário precisa adicionar 'plymouth' aos HOOKS em mkinitcpio.conf manualmente
-    echo "DICA: Adicione 'plymouth' aos HOOKS em /etc/mkinitcpio.conf para ativar o boot visual."
+    
+    # Automatizar HOOK mkinitcpio (Adiciona plymouth após udev se não existir)
+    if grep -q "udev" /etc/mkinitcpio.conf && ! grep -q "plymouth" /etc/mkinitcpio.conf; then
+        echo "Injetando hook do Plymouth no mkinitcpio..."
+        sudo sed -i 's/udev/udev plymouth/' /etc/mkinitcpio.conf
+        echo "Regenerando imagem de boot (mkinitcpio)..."
+        sudo mkinitcpio -P
+    fi
 fi
 
+# --- Bases de Dados (MariaDB) ---
+if [[ $CHOICES == *"Stack Laravel"* ]]; then
+    if [ ! -d "/var/lib/mysql/mysql" ]; then
+        echo -e "${GREEN}--> Inicializando MariaDB pela primeira vez...${NC}"
+        sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
+    fi
+    sudo systemctl enable --now mariadb
+fi
+
+# --- Segurança (Firewall UFW) ---
+echo -e "${GREEN}--> Configurando Firewall (UFW)...${NC}"
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh             # Permite acesso remoto via SSH (opcional)
+sudo ufw allow 8000/tcp        # PHP / Laravel
+sudo ufw allow 8080/tcp        # Node / Vite
+sudo ufw allow 5000/tcp        # Flask (Python)
+sudo ufw allow 8550/tcp        # Flet (Python)
+sudo ufw --force enable
+sudo systemctl enable ufw
+
 # --- Serviços Base ---
+echo -e "${GREEN}--> Ativando Serviços Base...${NC}"
 sudo systemctl enable NetworkManager bluetooth sddm
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
 

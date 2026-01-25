@@ -137,7 +137,9 @@ Se ativar a segurança BTRFS no instalador:
 
 *   **Docker**: Execute `sudo usermod -aG docker $USER` e reinicie a sessão.
 *   **MariaDB**: Execute `sudo mariadb-secure-installation` e siga o prompt (Recomendado: Use password tradicional, recuse unix_socket).
+*   **Firewall**: O **UFW** já está ativo e configurado para bloquear tudo, exceto SSH e as portas de desenvolvimento (`8000`, `8080`, `5000`, `8550`).
 *   **Firefox**: Instale a extensão [Nordic Theme](https://addons.mozilla.org/en-US/firefox/addon/nordic-dark/) para consistência total.
+*   **Serviços**: Se não usou o instalador, ative a base: `sudo systemctl enable --now NetworkManager bluetooth sddm ufw`.
 
 ---
 

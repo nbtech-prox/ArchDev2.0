@@ -99,10 +99,6 @@ python
 python-poetry
 tk
 
-# v2.0 Management & Automation
-stow
-gum
-
 # IDE & Editor (Neovim Pro)
 neovim
 lua-language-server
@@ -110,6 +106,14 @@ pyright
 bash-language-server
 rust
 rust-analyzer
+make
+
+# v2.0 Management & Automation
+stow
+gum
+lazygit
+lazydocker
+ufw
 
 # System Resilience & Boot
 snapper
