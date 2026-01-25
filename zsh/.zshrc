@@ -57,7 +57,7 @@ alias yayinstall='yay -S'
 # v2.0 Aliases
 alias nv='nvim'
 alias edit='nvim'
-alias reload-config='cd ~/.dotfiles && stow -R * && cd -'
+alias reload-config='cd ~/.dotfiles && stow -R */ && cd -'
 alias lg='lazygit'
 alias ld='lazydocker'
 
@@ -92,8 +92,7 @@ alias flask-dev='export FLASK_DEBUG=1 && poetry run flask run'
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
-# 6.1 ASDF & DIRENV (Hermetic Environments)
-[ -f /opt/asdf-vm/asdf.sh ] && source /opt/asdf-vm/asdf.sh
+# 6.1 DIRENV (Hermetic Environments)
 eval "$(direnv hook zsh)"
 
 # 7. STARSHIP

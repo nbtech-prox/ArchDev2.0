@@ -1,0 +1,21 @@
+# Direnv integration for asdf-vm
+use_asdf() {
+  if [[ -f .tool-versions ]]; then
+    # shellcheck disable=SC2013
+    for entry in $(cut -d# -f1 .tool-versions); do
+      local tool=$(echo "$entry" | awk '{print $1}')
+      local version=$(echo "$entry" | awk '{print $2}')
+      if [[ -n "$tool" && "$version" != "system" ]]; then
+        local install_path
+        install_path=$(asdf where "$tool" "$version" 2>/dev/null)
+        if [[ $? -eq 0 ]]; then
+          if [[ -d "$install_path/bin" ]]; then
+            PATH_add "$install_path/bin"
+          else
+            PATH_add "$install_path"
+          fi
+        fi
+      fi
+    done
+  fi
+}

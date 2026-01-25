@@ -59,7 +59,9 @@ noto-fonts-emoji
 nwg-look
 bibata-cursor-theme
 
-# Network
+# Audio & Network
+pavucontrol
+blueman
 network-manager-applet
 
 # Utilities

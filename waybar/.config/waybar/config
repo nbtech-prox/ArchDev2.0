@@ -8,10 +8,10 @@
     "height": 0,
     "modules-left": [
         "clock",
-        "hyprland/workspaces"
+        "hyprland/workspaces",
+        "custom/project"
     ],
     "modules-center": [
-        "custom/project",
         "hyprland/window"
     ],
     "modules-right": [

@@ -1,51 +1,58 @@
 #!/usr/bin/env bash
-# Script para detecção inteligente de projeto para Waybar
-# Detecta o tipo de projeto com base no CWD da janela ativa do Hyprland
+# ArchDev v2.6 - Detecção Inteligente de Projetos
 
 ACTIVE=$(hyprctl activewindow -j 2>/dev/null)
 PID=$(echo "$ACTIVE" | jq -r '.pid')
 
 [[ -z "$PID" || "$PID" == "null" ]] && exit 0
 
-# Obter o CWD (Current Working Directory) do processo
 CWD=$(readlink -f /proc/$PID/cwd 2>/dev/null)
 [[ ! -d "$CWD" ]] && exit 0
 
 PROJECT=""
-ICON=""
-PYENV=""
+ICON="⚙️"
+ENV_INFO=""
 
-# Lógica de Detecção
-if [[ -f "$CWD/artisan" ]]; then
+# 1. Detecção de Tipo de Projeto
+if [[ -f "$CWD/artisan" || -f "$CWD/../artisan" || -f "$CWD/teste/artisan" ]]; then
     ICON="🟥"
     PROJECT="Laravel"
-elif [[ -f "$CWD/app.py" || -f "$CWD/run.py" ]]; then
+elif [[ -f "$CWD/app.py" || -f "$CWD/run.py" || -f "$CWD/main.py" ]]; then
     ICON="🟦"
-    PROJECT="Flet"
-elif [[ -f "$CWD/flask_app.py" || -f "$CWD/main.py" ]]; then
-    ICON="🧪"
-    PROJECT="Flask"
-elif [[ -f "$CWD/pyproject.toml" ]]; then
-    ICON="🐍"
     PROJECT="Python"
-fi
-
-# Detectar ambiente Poetry, Venv ou ASDF
-if [[ -n "$VIRTUAL_ENV" ]]; then
-    PYENV="($(basename "$VIRTUAL_ENV"))"
+elif [[ -f "$CWD/package.json" ]]; then
+    ICON=""
+    PROJECT="NodeJS"
 elif [[ -f "$CWD/.tool-versions" ]]; then
-    # Se houver asdf, mostra a versão principal do projeto
-    TOOL_VERSION=$(head -n 1 "$CWD/.tool-versions" | awk '{print $NF}')
-    PYENV="($TOOL_VERSION)"
-elif [[ -f "$CWD/pyproject.toml" ]] && command -v poetry &>/dev/null; then
-    # Checa se existe um env do poetry para este diretório
-    if cd "$CWD" && poetry env info -p &>/dev/null; then
-        PYENV="(poetry)"
-    fi
+    ICON="🛠️"
+    PROJECT="Env"
 fi
 
-# Se não detectou projeto, sai sem imprimir nada (para não ocupar espaço na barra)
-[[ -z "$PROJECT" ]] && exit 0
+# 2. Busca Recursiva do .tool-versions (sobe até 3 níveis)
+SEARCH_DIR="$CWD"
+for i in {1..3}; do
+    if [[ -f "$SEARCH_DIR/.tool-versions" ]]; then
+        VERSION=$(head -n 1 "$SEARCH_DIR/.tool-versions" | awk '{print $NF}')
+        ENV_INFO="($VERSION)"
+        break
+    fi
+    SEARCH_DIR=$(dirname "$SEARCH_DIR")
+    [[ "$SEARCH_DIR" == "/" ]] && break
+done
 
-# Saída formatada para o Waybar
-echo "$ICON $PROJECT $PYENV"
+# 3. Fallback: Se for Laravel e não achou .tool-versions, pega a versão do PHP
+if [[ "$PROJECT" == "Laravel" && -z "$ENV_INFO" ]]; then
+    PHP_V=$(php -v | head -n 1 | awk '{print $2}' | cut -d. -f1,2)
+    ENV_INFO="($PHP_V)"
+fi
+
+# 4. Indicador de Direnv Ativo
+if [[ -d "$CWD/.direnv" || -d "$CWD/../.direnv" ]]; then
+    ENV_INFO="$ENV_INFO 🫧"
+fi
+
+# Se não detectou nada relevante, sai silenciosamente
+[[ -z "$PROJECT" && -z "$ENV_INFO" ]] && exit 0
+[[ -z "$PROJECT" ]] && PROJECT="Projeto"
+
+echo "$ICON $PROJECT $ENV_INFO"
