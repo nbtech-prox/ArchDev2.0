@@ -112,7 +112,7 @@ Para alterar o cérebro da sua IA, siga estes passos:
 3.  Descomente a linha do modelo desejado e comente a anterior.
 4.  Grave o ficheiro (`Space + w`) e reinicie o Neovim.
 
-> **Configuração Obrigatória**: Adicione sua chave ao `~/.zshrc`: `export GEMINI_API_KEY='sua_chave_do_google_ai_studio'`.
+> **Configuração Obrigatória**: Obtenha sua chave no [Google AI Studio](https://aistudio.google.com/app/apikey) e adicione-a ao seu `~/.zshrc`: `export GEMINI_API_KEY='sua_chave_do_google_ai_studio'`.
 
 ---
 
