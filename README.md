@@ -6,69 +6,119 @@
 
 ![License](https://img.shields.io/badge/License-MIT-blue.svg) 
 ![CI Status](https://github.com/nbtech-prox/ArchDev2.0/actions/workflows/ci.yml/badge.svg)
-![Version](https://img.shields.io/badge/Version-2.0-88C0D0)
-![Strategy](https://img.shields.io/badge/Strategy-GNU_Stow-green)
+![Arch Linux](https://img.shields.io/badge/Arch-Linux-blue?logo=arch-linux&logoColor=white)
+![Hyprland](https://img.shields.io/badge/Hyprland-Wayland-green)
+![Theme](https://img.shields.io/badge/Theme-Nord-88C0D0)
+![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?logo=laravel&logoColor=white)
+![Framework](https://img.shields.io/badge/Python-Flask%20%7C%20Flet-blue?logo=python&logoColor=white)
 
-**Uma arquitetura de elite para Arch Linux. Modular, resiliente e focada em automação extrema.**
+**O ambiente definitivo para produtividade extrema em Arch Linux.**
+*Modular, resiliente, esteticamente perfeito e pronto para o desenvolvimento moderno.*
 
-[Instalação](#-instalação) • [Neovim Pro](#-neovim-pro-ide) • [Resiliência](#-segurança--resiliência) • [v1.0 (Legacy)](https://github.com/nbtech-prox/ArchDev/tree/v1.0)
+[Instalação](#-instalação) • [Stack Tecnológica](#-stack-tecnológica) • [Fluxo de Trabalho](#-fluxo-de-trabalho--atalhos) • [Neovim Pro](#-neovim-pro-ide)
 
 </div>
 
 ---
 
-## ✨ O que há de novo na v2.0?
+## 💎 A Filosofia ArchDev
+O **ArchDev2.0** não é apenas uma coleção de ficheiros de configuração. É uma infraestrutura pensada para o desenvolvedor que exige **desempenho AMD**, **consistência visual Nord** e um sistema que **não se quebra**.
 
-*   **📦 Gestão via GNU Stow**: Chega de copiar ficheiros. Todo o seu sistema é gerido através de *symlinks* automáticos. Mude algo no repo e o sistema atualiza na hora.
-*   **🛠️ Instalador Interativo (Gum)**: Um script amigável que permite escolher exatamente o que quer instalar (Laravel, Python, Neovim ou Backups).
-*   **⌨️ Neovim Pro Experience**: Uma configuração modular do Neovim (Lazy.nvim) que transforma o seu terminal numa IDE poderosa com suporte LSP para PHP e Python.
-*   **🛡️ Resiliência BTRFS**: Integração com Snapper para snapshots automáticos. Atualizações quebraram o sistema? Volte atrás em segundos.
-*   **🎨 Boot Estilizado**: Tema Plymouth (Arctic Nord) para uma experiência coesa desde o momento em que liga o computador.
+Utilizando uma arquitetura modular baseada em **GNU Stow**, o seu ambiente de trabalho torna-se um repositório git vivo: cada alteração feita na sua pasta pessoal é refletida instantaneamente no repositório.
 
 ---
 
-## 🚀 Instalação (v2.0)
+## ✨ Características Principais
 
-**Pré-requisito**: Arch Linux Minimal (preferencialmente com sistema de ficheiros **BTRFS** se quiser snapshots).
-
-1.  **Clone e Entre**:
-    ```bash
-    git clone https://github.com/nbtech-prox/ArchDev2.0.git
-    cd ArchDev2.0
-    ```
-
-2.  **Execute o Setup Inteligente**:
-    ```bash
-    chmod +x install.sh
-    ./install.sh
-    ```
+*   **📦 Gestão de Dotfiles Profissional**: Baseado em módulos independentes via GNU Stow.
+*   **🚀 Instalador Inteligente**: Menu interativo (via Gum) que permite personalizar a sua instalação.
+*   **⌨️ Experiência "Mouse-less"**: Workflow focado em atalhos de teclado e Hyprland para agilidade total.
+*   **🛡️ Resiliência BTRFS**: Snapshots automáticos (Snapper) vinculados ao Pacman. Segurança total contra falhas de sistema.
+*   **🎨 Perfeição Visual**: Tema Nord unificado (GTK 3/4, Qt 5/6, Neovim, Shell, Boot Screen).
 
 ---
 
-## ⌨️ Neovim Pro IDE
-O ArchDev v2.0 traz o **Neovim** configurado para produção:
-- **Atalho**: `nv` ou `edit`
-- **Leader Key**: `Espaço`
-- **`leader + ff`**: Procurar ficheiros (Telescope)
-- **`leader + fg`**: Pesquisar texto nos ficheiros
-- **`leader + w`**: Salvar rápido
+## 🛠️ Stack Tecnológica
 
----
-
-## 🛡️ Segurança & Resiliência
-Se selecionou "Segurança BTRFS" no instalador:
-- O **Snapper** criará um ponto de restauro automático cada vez que usar o `pacman` ou `yay`.
-- Os ficheiros de configuração (`dotfiles`) estão agora blindados via **Stow**. Se apagar algo na pasta `HOME` por engano, basta rodar `reload-config` para restaurar tudo.
-
----
-
-## 🛠️ Stack Tecnológica (Modernizada)
-- **Dotfile Manager**: GNU Stow
-- **Editor**: Neovim (LSP, Treesitter, Telescope)
-- **PHP**: Laravel 12 (PHP 8.4)
-- **Python**: Poetry (Virtualenvs automáticos)
+### Core
+- **Window Manager**: Hyprland (Wayland puro)
+- **Barra/Painel**: Waybar (Custom CSS)
+- **Editor**: Neovim (Lazy.nvim, LSP, Treesitter)
+- **Terminal**: Kitty com ZSH + Starship Prompt
 - **Boot**: Systemd-boot + Plymouth Arctic Nord
 
+### Development Ready (Últimas Versões)
+- **Laravel 12**: PHP 8.4 tunado (extension scripts incluídos).
+- **Python Ecosystem**: Poetry para gestão de virtualenvs, Flask e Flet.
+- **Bases de Dados**: MariaDB (MySQL) e SQLite3 pré-configurados.
+- **Ambiente**: Docker & Docker Compose.
+
 ---
 
-<p align="center">Elevando o padrão do desenvolvimento em Linux. 🚀🏁</p>
+## 🚀 Instalação
+
+### 1. Pré-requisitos
+*   **Arch Linux Minimal** instalado.
+*   Recomendado sistema de ficheiros **BTRFS** (para snapshots).
+*   Hardware **AMD** (Drivers Mesa incluídos por defeito).
+
+### 2. Passo-a-passo
+```bash
+# Clone o repositório
+git clone https://github.com/nbtech-prox/ArchDev2.0.git
+cd ArchDev2.0
+
+# Inicie o setup interativo
+chmod +x install.sh
+./install.sh
+```
+
+---
+
+## ⌨️ Fluxo de Trabalho & Atalhos
+
+| Atalho | Ação |
+| :--- | :--- |
+| `Super + Enter` | Terminal Kitty |
+| `Super + B` | Firefox |
+| `Super + E` | Explorador (Thunar) |
+| `Super + W` | Lançador (Wofi) |
+| `Super + Q` | Fechar Janela |
+| `Super + X` | Menu de Saída (wlogout) |
+| `Super + Esc` | Bloquear Ecrã |
+| `Super + Ctrl + Setas` | Carrossel de Workspaces |
+| `PrintScreen` | Captura de Ecrã Pro |
+
+---
+
+## 💻 Neovim Pro IDE
+O setup v2.0 inclui um ambiente de código no terminal de nível VS Code:
+- **Abrir**: use o comando `nv`.
+- **Leader Key**: `Space`.
+- **LSP**: Autocompletar inteligente para PHP, Python, Lua e Bash.
+- **`Space + ff`**: Procurar ficheiro.
+- **`Space + fg`**: Pesquisar texto global.
+- **`Space + pv`**: Browser de ficheiros lateral.
+
+---
+
+## 🛡️ Segurança & Manutenção BTRFS
+Se ativar a segurança BTRFS no instalador:
+1.  O sistema cria um snapshot automático **antes e depois** de cada `pacman -S`.
+2.  Caso uma atualização parta o sistema, pode restaurar a versão anterior via `snapper`.
+3.  **Restauro de Dotfiles**: Se apagar a sua pasta `.config` por engano, basta correr `reload-config` na raiz do ArchDev2.0.
+
+---
+
+## 🎨 Configurações de Pós-Instalação
+
+*   **Docker**: Execute `sudo usermod -aG docker $USER` e reinicie a sessão.
+*   **MariaDB**: Execute `sudo mariadb-secure-installation` e siga o prompt (Recomendado: Use password tradicional, recuse unix_socket).
+*   **Firefox**: Instale a extensão [Nordic Theme](https://addons.mozilla.org/en-US/firefox/addon/nordic-dark/) para consistência total.
+
+---
+
+<div align="center">
+  <p>Elevando o padrão do desenvolvimento em Linux. 🚀🏁</p>
+  <sub>Orgulhosamente construído para produtividade.</sub>
+</div>
