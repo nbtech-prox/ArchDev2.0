@@ -150,7 +150,10 @@ Se ativar a segurança BTRFS no instalador:
 ## 🎨 Configurações de Pós-Instalação
 
 *   **Docker**: Execute `sudo usermod -aG docker $USER` e reinicie a sessão.
-*   **MariaDB**: O serviço inicia automaticamente, mas deve configurar a segurança. Execute `sudo mariadb-secure-installation` e siga estes passos:
+*   **MariaDB**: No Arch Linux, o MariaDB precisa ser inicializado manualmente antes do primeiro uso:
+    1.  **Inicializar Base de Dados**: `sudo mariadb-install-db --user=mysql --basedir=/usr --datadir=/var/lib/mysql`
+    2.  **Iniciar Serviço**: `sudo systemctl enable --now mariadb`
+    3.  **Configurar Segurança**: Execute `sudo mariadb-secure-installation` e siga estes passos:
     1.  `Enter current password for root`: Pressione **Enter** (vazio).
     2.  `Switch to unix_socket authentication`: Pressione **n** (Importante para compatibilidade Laravel).
     3.  `Change the root password?`: Pressione **Y** e defina a sua senha de administrador.
