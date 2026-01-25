@@ -12,9 +12,15 @@ return {
   -- Treesitter (Syntax Highlighting)
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master",
     build = ":TSUpdate",
     config = function()
-      require("nvim-treesitter.configs").setup({
+      local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+      if not status_ok then
+        return
+      end
+
+      configs.setup({
         ensure_installed = { "lua", "python", "php", "bash", "javascript", "json", "yaml" },
         highlight = { enabled = true },
       })
@@ -39,14 +45,16 @@ return {
     version = false, -- set this to "*" to keep up to date with release, or false for latest
     opts = {
       provider = "gemini",
-      gemini = {
-        -- Modelos Gemini 3 (Selecione descomentando a linha desejada)
-        -- model = "gemini-3.0-flash",           -- Ultra Rápido
-        -- model = "gemini-3.0-pro-low",         -- Equilibrado
-        model = "gemini-3.0-pro-high",           -- Máxima Inteligência (High)
-        
-        temperature = 0,                         -- Precisão máxima sem "alucinações"
-        max_tokens = 16384,                      -- O máximo permitido para respostas longas
+      providers = {
+        gemini = {
+          -- Modelos Gemini 3 (Selecione descomentando a linha desejada)
+          -- model = "gemini-3.0-flash",           -- Ultra Rápido
+          -- model = "gemini-3.0-pro-low",         -- Equilibrado
+          model = "gemini-3.0-pro-high",           -- Máxima Inteligência (High)
+          
+          temperature = 0,                         -- Precisão máxima sem "alucinações"
+          max_tokens = 16384,                      -- O máximo permitido para respostas longas
+        },
       },
       auto_suggestions_provider = "gemini", -- Enable copilot-style suggestions
       behaviour = {

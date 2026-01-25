@@ -1,6 +1,8 @@
 # 0. PATH
 export PATH="$HOME/.config/composer/vendor/bin:$HOME/.local/bin:$PATH"
 
+export GEMINI_API_KEY='AIzaSyCamh_GPfG-DNN4SAcwPGvgPVnTLREP2TQ'
+
 # Enable Powerlevel10k or Starship instant prompt if needed
 # ...
 
