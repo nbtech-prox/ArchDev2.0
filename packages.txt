@@ -134,5 +134,4 @@ zsh-autosuggestions
 zsh-syntax-highlighting
 zsh-completions
 starship
-git
 base-devel
