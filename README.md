@@ -106,6 +106,7 @@ A tecla **Leader** é o `Espaço`.
 | `Shift + Tab` | Mudar para a Aba Anterior |
 | `Space + x` | Fechar Aba Atual |
 | `Space + t` | Abrir/Fechar Terminal Flutuante |
+| `Space + mp` | Preview Markdown (Browser) |
 | `Space + w` | Salvar Ficheiro |
 | `Space + q` | Sair do Neovim |
 
