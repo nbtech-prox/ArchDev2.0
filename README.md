@@ -110,18 +110,19 @@ A tecla **Leader** é o `Espaço`.
 | `Space + w` | Salvar Ficheiro |
 | `Space + q` | Sair do Neovim |
 
-#### Inteligência Artificial (Gemini 3.0) & Git
+#### Inteligência Artificial (Gemini 2.0/Flash) & Git
 | Atalho | Ação |
 | :--- | :--- |
 | `Space + aa` | Abrir Chat Lateral da IA (Antigravity Style) |
 | `Space + ak` | Solicitar Alteração de Código Inline (IA) |
 | `Space + g` | Abrir Lazygit dentro do Neovim |
 
-> **Nota IA**: Obtenha sua chave no [Google AI Studio](https://aistudio.google.com/app/apikey) e adicione-a ao seu `~/.dotfiles/zsh/.zshrc`: `export GEMINI_API_KEY='sua_chave'`.
+> **🛡️ Segurança IA**: O setup agora usa um ficheiro externo para segurança máxima. Obtenha sua chave no [Google AI Studio](https://aistudio.google.com/app/apikey) e execute no terminal:
+> `echo "export GEMINI_API_KEY='sua_chave'" > ~/.gemini_key && chmod 600 ~/.gemini_key`.
 
 #### 🔄 Como trocar o modelo de IA
 1.  `Space + ff` -> procure por `init.lua`.
-2.  Navegue até `avante.nvim` e descomente o modelo Gemini desejado (`High`, `Low` ou `Flash`).
+2.  Navegue até `avante.nvim` e descomente o modelo Gemini desejado (recomenda-se `gemini-flash-latest` para estabilidade ou `gemini-2.0-flash` para nova geração).
 
 ---
 
@@ -163,11 +164,12 @@ Se ativar a segurança BTRFS no instalador:
 
 ---
 
-## 🧬 Ambientes Herméticos (Nix-Style)
-O setup v2.5 introduz o conceito de reprodutibilidade total. Cada projeto pode ter sua própria bolha de ferramentas:
+## 🧬 Ambientes Herméticos & Waybar Inteligente
+O setup v2.6 introduz o conceito de reprodutibilidade total e monitorização visual:
 
-1.  **Versões Múltiplas**: Use o `asdf` para instalar qualquer versão de PHP, Node ou Python.
-2.  **Ativação Automática**: Use o `direnv` para ativar a versão certa assim que entra na pasta (`cd`).
+1.  **Versões Múltiplas**: Use o `asdf` para instalar qualquer versão de ferramentas.
+2.  **Ativação Automática**: O `direnv` ativa a versão certa via `use_asdf` (definido no seu `direnvrc`).
+3.  **Waybar Inteligente**: A barra agora detecta recursivamente projetos (Laravel, Python, Node) e exibe a versão ativa e o status da "bolha" (`🫧`).
 
 **Exemplo Laravel (PHP):**
 ```bash
