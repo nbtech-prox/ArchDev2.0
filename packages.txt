@@ -77,6 +77,11 @@ fastfetch
 pacman-contrib
 btop
 tree-sitter-cli
+eza
+bat
+fd
+ripgrep
+fzf
 
 # Development - Web (Laravel)
 php

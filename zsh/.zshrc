@@ -42,8 +42,10 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # 5. ALIASES
-alias ll='ls -l'
-alias la='ls -la'
+alias ls='eza --icons --group-directories-first'
+alias ll='eza -l --icons --group-directories-first'
+alias la='eza -la --icons --group-directories-first'
+alias cat='bat'
 alias ...='cd ../..'
 alias install='sudo pacman -S'
 alias update='sudo pacman -Syu'
@@ -71,6 +73,10 @@ alias pa='poetry add'
 alias flet-run='poetry run flet run'
 alias flask-dev='export FLASK_DEBUG=1 && poetry run flask run'
 
-# 6. STARSHIP
+# 6. MODERN TOOLS & FZF
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
+# 7. STARSHIP
 fastfetch
 eval "$(starship init zsh)"

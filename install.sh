@@ -70,7 +70,6 @@ if [[ $CHOICES == *"Stack Laravel"* ]]; then
     sudo sed -i 's/;extension=intl/extension=intl/' $PHP_INI
     sudo sed -i 's/;extension=pdo_mysql/extension=pdo_mysql/' $PHP_INI
     composer global require laravel/installer --quiet
-    sudo systemctl enable --now mariadb
 fi
 
 # --- Segurança BTRFS ---
@@ -115,11 +114,11 @@ sudo ufw allow 8080/tcp        # Node / Vite
 sudo ufw allow 5000/tcp        # Flask (Python)
 sudo ufw allow 8550/tcp        # Flet (Python)
 sudo ufw --force enable
-sudo systemctl enable ufw
 
 # --- Serviços Base ---
-echo -e "${GREEN}--> Ativando Serviços Base...${NC}"
-sudo systemctl enable NetworkManager bluetooth sddm
+echo -e "${GREEN}--> Ativando Serviços Base e Manutenção...${NC}"
+sudo systemctl enable NetworkManager bluetooth sddm ufw
+sudo systemctl enable paccache.timer # Limpeza automática de cache
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
 
 # Finalização

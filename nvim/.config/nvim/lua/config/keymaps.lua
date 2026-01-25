@@ -25,3 +25,6 @@ keymap.set("n", "<leader>x", ":bdelete<CR>", { desc = "Close Tab" })
 -- Terminal (Toggleterm)
 keymap.set("n", "<leader>t", ":ToggleTerm<CR>", { desc = "Toggle Terminal" })
 keymap.set("t", "<Esc>", [[<C-\><C-n>]], { desc = "Exit Terminal Mode" })
+
+-- Lazygit inside Neovim
+keymap.set("n", "<leader>g", ":LazyGit<CR>", { desc = "Lazygit" })
