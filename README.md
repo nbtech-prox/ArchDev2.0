@@ -136,7 +136,14 @@ Se ativar a segurança BTRFS no instalador:
 ## 🎨 Configurações de Pós-Instalação
 
 *   **Docker**: Execute `sudo usermod -aG docker $USER` e reinicie a sessão.
-*   **MariaDB**: Execute `sudo mariadb-secure-installation` e siga o prompt (Recomendado: Use password tradicional, recuse unix_socket).
+*   **MariaDB**: O serviço inicia automaticamente, mas deve configurar a segurança. Execute `sudo mariadb-secure-installation` e siga estes passos:
+    1.  `Enter current password for root`: Pressione **Enter** (vazio).
+    2.  `Switch to unix_socket authentication`: Pressione **n** (Importante para compatibilidade Laravel).
+    3.  `Change the root password?`: Pressione **Y** e defina a sua senha de administrador.
+    4.  `Remove anonymous users?`: Pressione **Y**.
+    5.  `Disallow root login remotely?`: Pressione **Y**.
+    6.  `Remove test database and access to it?`: Pressione **Y**.
+    7.  `Reload privilege tables now?`: Pressione **Y**.
 *   **Firewall**: O **UFW** já está ativo e configurado para bloquear tudo, exceto SSH e as portas de desenvolvimento (`8000`, `8080`, `5000`, `8550`).
 *   **Firefox**: Instale a extensão [Nordic Theme](https://addons.mozilla.org/en-US/firefox/addon/nordic-dark/) para consistência total.
 *   **Serviços**: Se não usou o instalador, ative a base: `sudo systemctl enable --now NetworkManager bluetooth sddm ufw`.
