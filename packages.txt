@@ -59,14 +59,8 @@ noto-fonts-emoji
 nwg-look
 bibata-cursor-theme
 
-# Audio & Network
-pipewire
-pipewire-pulse
-pipewire-alsa
-wireplumber
-pavucontrol
+# Network
 network-manager-applet
-blueman
 
 # Utilities
 grim

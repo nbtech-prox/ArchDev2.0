@@ -8,7 +8,7 @@ mkdir -p ~/.config/Kvantum
 
 # Baixa o tema Nordic do GitHub
 TEMP_DIR=$(mktemp -d)
-cd "$TEMP_DIR"
+cd "$TEMP_DIR" || exit
 
 git clone https://github.com/EliverLara/Nordic.git
 
@@ -24,7 +24,7 @@ else
 fi
 
 # Limpa arquivos temporários
-cd ~
+cd ~ || exit
 rm -rf "$TEMP_DIR"
 
 echo "Instalação concluída!"

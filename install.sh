@@ -52,6 +52,7 @@ sudo pacman -S --needed --noconfirm mesa vulkan-radeon libva-utils vdpauinfo
 echo -e "${GREEN}--> Instalando pacotes do sistema...${NC}"
 PACKAGES=$(grep -vE "^\s*#" packages.txt | tr "\n" " ")
 # Usar pacman primeiro para o que estiver nos repositórios oficiais (Exclusão explícita de mesa-rk35xx-git)
+# shellcheck disable=SC2046
 sudo pacman -S --needed --noconfirm $(pacman -Slq | grep -Fwxf <(echo "$PACKAGES" | tr ' ' '\n')) 2>/dev/null
 
 # O resto (AUR) é tratado pelo yay, garantindo que não pegamos o mesa-rk35xx
