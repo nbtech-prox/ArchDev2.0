@@ -55,7 +55,6 @@ ttf-jetbrains-mono-nerd
 noto-fonts
 noto-fonts-emoji
 nwg-look
-papirus-icon-theme
 bibata-cursor-theme
 
 # Audio & Network
@@ -89,7 +88,6 @@ php-fpm
 php-gd
 php-intl
 php-opcache
-php-sqlite
 php-redis
 php-imagick
 composer
