@@ -75,53 +75,65 @@ chmod +x install.sh
 
 ---
 
-## ⌨️ Fluxo de Trabalho & Atalhos
+## ⌨️ Domínio do Sistema (Guia de Atalhos Master)
 
+### 🖥️ Interface & Janelas (Hyprland)
 | Atalho | Ação |
 | :--- | :--- |
-| `Super + Enter` | Terminal Kitty |
-| `Super + B` | Firefox |
-| `Super + E` | Explorador (Thunar) |
-| `Super + W` | Lançador (Wofi) |
-| `Super + Q` | Fechar Janela |
-| `Super + X` | Menu de Saída (wlogout) |
-| `Super + Esc` | Bloquear Ecrã |
-| `Super + Ctrl + Setas` | Carrossel de Workspaces |
-| `PrintScreen` | Captura de Ecrã Pro |
+| `Super + Enter` | Abrir Terminal (Kitty) |
+| `Super + B` | Abrir Browser (Firefox) |
+| `Super + E` | Abrir Explorador de Ficheiros (Thunar) |
+| `Super + W` | Lançador de Aplicações (Wofi) |
+| `Super + Q` | Fechar Janela Ativa |
+| `Super + X` | Menu de Energia (Log out, Reboot, Shutdown) |
+| `Super + Esc` | Bloquear Ecrã (Hyprlock) |
+| `Super + Setas` | Mover Foco entre Janelas |
+| `Super + Ctrl + Setas` | Carrossel de Áreas de Trabalho (Workspaces) |
+| `PrintScreen` | Screenshot da Região para o Clipboard |
 
 ---
 
-## 💻 Neovim Pro IDE
-O setup v2.0 inclui um ambiente de código no terminal de nível VS Code:
-- **Abrir**: use o comando `nv`.
-- **Leader Key**: `Space`.
-- **LSP**: Autocompletar inteligente para PHP, Python, Lua e Bash.
-- **Tabs (Bufferline)**: 
-    - **`Tab`**: Próxima Tab.
-    - **`Shift + Tab`**: Tab Anterior.
-    - **`Space + x`**: Fechar Tab atual.
-- **Terminal (Toggleterm)**:
-    - **`Space + t`**: Abrir/Fechar Terminal flutuante integrando.
-- **AI Suite (2026)**: Integrado via `avante.nvim` com suporte total aos modelos **Google Gemini 3.0**.
-- **Comandos**:
-    - **`Space + aa`**: Abrir Chat Lateral IA.
-    - **`Space + ak`**: Pedir alteração de código inline.
-- **Modelos Disponíveis**:
-    - `Gemini 3.0 Pro High` (Default) - Máximo raciocínio.
-    - `Gemini 3.0 Pro Low` - Equilíbrio entre velocidade e inteligência.
-    - `Gemini 3.0 Flash` - Respostas instantâneas e leves.
+### 💻 Neovim Pro IDE (A nossa Central Dev)
+A tecla **Leader** é o `Espaço`.
+
+#### Navegação & UI
+| Atalho | Ação |
+| :--- | :--- |
+| `Space + ff` | Pesquisar Ficheiro (Telescope) |
+| `Space + fg` | Pesquisar Texto em Todos os Ficheiros |
+| `Space + pv` | Abrir Browser de Ficheiros (Netrw) |
+| `Tab` | Mudar para a Próxima Aba (Buffer) |
+| `Shift + Tab` | Mudar para a Aba Anterior |
+| `Space + x` | Fechar Aba Atual |
+| `Space + t` | Abrir/Fechar Terminal Flutuante |
+| `Space + w` | Salvar Ficheiro |
+| `Space + q` | Sair do Neovim |
+
+#### Inteligência Artificial (Gemini 3.0) & Git
+| Atalho | Ação |
+| :--- | :--- |
+| `Space + aa` | Abrir Chat Lateral da IA (Antigravity Style) |
+| `Space + ak` | Solicitar Alteração de Código Inline (IA) |
+| `Space + g` | Abrir Lazygit dentro do Neovim |
+
+> **Nota IA**: Obtenha sua chave no [Google AI Studio](https://aistudio.google.com/app/apikey) e adicione-a ao seu `~/.dotfiles/zsh/.zshrc`: `export GEMINI_API_KEY='sua_chave'`.
 
 #### 🔄 Como trocar o modelo de IA
-Para alterar o cérebro da sua IA, siga estes passos:
-1.  Abra o Neovim e procure o ficheiro de plugins: `Space + ff` -> procure por `init.lua`.
-2.  Navegue até à secção `avante.nvim`.
-3.  Descomente a linha do modelo desejado e comente a anterior.
-4.  Grave o ficheiro (`Space + w`) e reinicie o Neovim.
+1.  `Space + ff` -> procure por `init.lua`.
+2.  Navegue até `avante.nvim` e descomente o modelo Gemini desejado (`High`, `Low` ou `Flash`).
 
-> **Configuração Obrigatória**: Obtenha sua chave no [Google AI Studio](https://aistudio.google.com/app/apikey) e adicione-a ao seu `~/.dotfiles/zsh/.zshrc`: `export GEMINI_API_KEY='sua_chave_do_google_ai_studio'`.
+---
 
-#### 🎨 Consistência Visual
-O Neovim usa agora `lualine` (barra de estado) e `bufferline` (tabs) com ícones **Nerd Fonts** de alta qualidade, 100% integrados no tema Nord.
+### 🐚 Terminal & Fluxo de Trabalho (Zsh / CLI)
+| Alias / Tecla | Função |
+| :--- | :--- |
+| `nv` ou `edit` | Abrir Neovim Pro |
+| `lg` | Abrir **Lazygit** (Interface visual para Git) |
+| `ld` | Abrir **Lazydocker** (Painel de Containers) |
+| `reload-config` | Re-sincronizar Dotfiles via Stow (Pasta Oculta) |
+| `ls / ll / la` | Listagem rica com ícones (`eza`) |
+| `cat` | Visualizador com cores (`bat`) |
+| `Ctrl + R` | Pesquisa Inteligente no Histórico (**FZF**) |
 
 ---
 
