@@ -16,7 +16,7 @@ nordic-wallpapers
 papirus-icon-theme
 arc-gtk-theme
 sddm
-sddm-nordic-theme-git
+sddm-sugar-candy-git
 
 # Interface & Tools
 waybar
@@ -34,8 +34,10 @@ libgsf
 thunar-volman
 file-roller
 unzip
+less
 nano
 xdg-user-dirs
+mousepad
 
 # File System Support (Pens & Samba)
 gvfs
@@ -47,8 +49,8 @@ exfatprogs
 # AMD Graphics
 mesa
 vulkan-radeon
-libva-mesa-driver
-mesa-vdpau
+libva-utils
+vdpauinfo
 
 # Fonts & Appearance
 ttf-jetbrains-mono-nerd
@@ -62,6 +64,7 @@ pipewire
 pipewire-pulse
 pipewire-alsa
 wireplumber
+pavucontrol
 network-manager-applet
 blueman
 

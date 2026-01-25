@@ -36,9 +36,26 @@ echo -e "${BLUE}Selecione os módulos que deseja configurar:${NC}"
 CHOICES=$(gum choose --no-limit "Stack Laravel (PHP 8.4 + MariaDB)" "Stack Python (Poetry + Flask/Flet)" "Neovim Pro IDE" "Segurança BTRFS (Snapshots)" "Boot Visual (Plymouth)")
 
 # 4. INSTALAÇÃO DE PACOTES
+echo -e "${GREEN}--> Verificando arquitetura e drivers...${NC}"
+ARCH=$(uname -m)
+if [ "$ARCH" != "x86_64" ]; then
+    echo "AVISO: Este setup foi otimizado para x86_64 (AMD). Prossiga com cautela em $ARCH."
+    sleep 2
+fi
+
+# Forçar instalação de drivers base via pacman para evitar que o yay tente pacotes AUR (-git/rk35xx)
+echo -e "${GREEN}--> Garantindo drivers gráficos oficiais AMD...${NC}"
+# Remove cache problemático se existir
+rm -rf ~/.cache/yay/mesa-rk35xx-git 2>/dev/null
+sudo pacman -S --needed --noconfirm mesa vulkan-radeon libva-utils vdpauinfo
+
 echo -e "${GREEN}--> Instalando pacotes do sistema...${NC}"
 PACKAGES=$(grep -vE "^\s*#" packages.txt | tr "\n" " ")
-yay -S --noconfirm --needed $PACKAGES
+# Usar pacman primeiro para o que estiver nos repositórios oficiais (Exclusão explícita de mesa-rk35xx-git)
+sudo pacman -S --needed --noconfirm $(pacman -Slq | grep -Fwxf <(echo "$PACKAGES" | tr ' ' '\n')) 2>/dev/null
+
+# O resto (AUR) é tratado pelo yay, garantindo que não pegamos o mesa-rk35xx
+yay -S --noconfirm --needed --provides=false $PACKAGES
 
 # 4.1 Criar pastas padrão do sistema
 echo -e "${GREEN}--> Organizando pastas da Home...${NC}"
@@ -116,13 +133,19 @@ sudo ufw allow 8550/tcp        # Flet (Python)
 sudo ufw --force enable
 
 # --- Serviços Base ---
-echo -e "${GREEN}--> Ativando Serviços Base e Manutenção...${NC}"
+echo -e "${GREEN}--> Ativando Serviços Base e Temas...${NC}"
 sudo systemctl enable NetworkManager bluetooth sddm ufw
+
+# Configurar Tema SDDM
+if [ -d "/usr/share/sddm/themes/sugar-candy" ]; then
+    echo -e "${GREEN}--> Aplicando tema Sugar Candy ao SDDM...${NC}"
+    echo -e "[Theme]\nCurrent=sugar-candy" | sudo tee /etc/sddm.conf.d/theme.conf > /dev/null
+fi
 sudo systemctl enable paccache.timer # Limpeza automática de cache
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
 
 # Finalização
-chsh -s /usr/bin/zsh
+sudo chsh -s /usr/bin/zsh $USER
 
 echo -e "${BLUE}### ArchDev v2.0 Instalado com Sucesso! ###${NC}"
 gum format "O sistema está pronto. **Reinicie** para aplicar todas as mudanças visuais.
