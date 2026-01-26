@@ -50,11 +50,9 @@ alias ls='eza --icons --group-directories-first'
 alias ll='eza -l --icons --group-directories-first'
 alias la='eza -la --icons --group-directories-first'
 alias cat='bat'
-alias ...='cd ../..'
-alias install='sudo pacman -S'
-alias update='sudo pacman -Syu'
-alias remove='sudo pacman -Rns'
-alias yayinstall='yay -S'
+alias install='yay -S'
+alias update='yay -Syu'
+alias remove='yay -Rns'
 
 # v2.0 Aliases
 alias nv='nvim'
@@ -98,5 +96,4 @@ alias flask-dev='export FLASK_DEBUG=1 && poetry run flask run'
 eval "$(direnv hook zsh)"
 
 # 7. STARSHIP
-fastfetch
 eval "$(starship init zsh)"
