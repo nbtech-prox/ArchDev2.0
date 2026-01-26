@@ -63,6 +63,7 @@ bibata-cursor-theme
 pavucontrol
 blueman
 network-manager-applet
+mpv
 
 # Utilities
 grim
