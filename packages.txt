@@ -63,7 +63,6 @@ bibata-cursor-theme
 pavucontrol
 blueman
 network-manager-applet
-mpv
 
 # Utilities
 grim
@@ -82,6 +81,10 @@ fd
 ripgrep
 fzf
 jq
+
+# Programs
+mpv
+inkscape
 
 # Development - Web (Laravel)
 php
