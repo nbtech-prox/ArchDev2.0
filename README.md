@@ -31,7 +31,7 @@ Utilizando uma arquitetura modular baseada em **GNU Stow**, o seu ambiente de tr
 ## ✨ Características Principais
 
 *   **📦 Gestão de Dotfiles Profissional**: Baseado em módulos independentes via GNU Stow.
-*   **🚀 Instalador Inteligente**: Menu interativo (via Gum) que permite personalizar a sua instalação.
+*   **🚀 Instalador Modular**: Menu interativo (via Gum) que permite escolher exatamente o que instalar (Laravel, Python, Neovim, BTRFS, etc.).
 *   **⌨️ Experiência "Mouse-less"**: Workflow focado em atalhos de teclado e Hyprland para agilidade total.
 *   **🛡️ Resiliência BTRFS**: Snapshots automáticos (Snapper) vinculados ao Pacman. Segurança total contra falhas de sistema.
 *   **🎨 Perfeição Visual**: Tema Nord unificado (GTK 3/4, Qt 5/6, Neovim, Shell, Boot Screen).
@@ -70,9 +70,16 @@ Utilizando uma arquitetura modular baseada em **GNU Stow**, o seu ambiente de tr
 git clone https://github.com/nbtech-prox/ArchDev2.0.git .dotfiles
 cd .dotfiles
 
-# Inicie o setup interativo
+# Inicie o setup interativo e modular
 chmod +x install.sh
 ./install.sh
+
+# Durante a instalação, use as setas e [Espaço] para selecionar seus módulos:
+# [ ] Stack Laravel (PHP 8.4 + MariaDB)
+# [ ] Stack Python (Poetry + Flask/Flet)
+# [ ] Neovim Pro IDE (LSP & Ferramentas)
+# [ ] Segurança BTRFS (Snapper Snapshots)
+# [ ] Boot Visual (Plymouth Nord)
 ```
 
 ---
