@@ -30,6 +30,9 @@ waypaper
 python-pillow
 swww
 udiskie
+spotify
+spicetify-cli
+spicetify-themes-git
 thunar
 tumbler
 ffmpegthumbnailer
