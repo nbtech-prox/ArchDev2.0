@@ -66,7 +66,7 @@ xdg-user-dirs-update
 echo -e "${GREEN}--> Aplicando Dotfiles via GNU Stow...${NC}"
 
 # Lista de módulos para Stow
-MODULES=("hypr" "waybar" "kitty" "dunst" "wofi" "wlogout" "gtk" "qt" "starship" "nvim" "zsh" "wireplumber" "direnv")
+MODULES=("hypr" "waybar" "kitty" "dunst" "rofi" "wlogout" "gtk" "qt" "starship" "nvim" "zsh" "wireplumber" "direnv" "spicetify" "waypaper")
 
 for module in "${MODULES[@]}"; do
     if [ -d "$module" ]; then
@@ -145,6 +145,18 @@ if [ -d "/usr/share/sddm/themes/sugar-candy" ]; then
 fi
 sudo systemctl enable paccache.timer # Limpeza automática de cache
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
+
+# --- Configuração Especial: Spicetify (Spotify Premium Skin) ---
+if command -v spicetify &> /dev/null; then
+    echo -e "${GREEN}--> Configurando Spicetify...${NC}"
+    # Dar permissões para o Spicetify injetar código no Spotify
+    sudo chmod a+wr /opt/spotify
+    sudo chmod a+wr /opt/spotify/Apps -R
+    
+    # Inicializar e aplicar (assume que o Spotify já foi aberto uma vez para criar o ficheiro 'prefs')
+    # Se falhar, o utilizador terá de correr 'spicetify backup apply' manualmente após o primeiro login
+    spicetify backup apply || echo -e "Aviso: Abra o Spotify e faça login primeiro, depois corra 'spicetify backup apply'."
+fi
 
 # Finalização
 sudo chsh -s /usr/bin/zsh $USER
