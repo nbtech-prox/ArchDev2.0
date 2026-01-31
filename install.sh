@@ -36,26 +36,57 @@ echo -e "${BLUE}Selecione os módulos que deseja configurar:${NC}"
 CHOICES=$(gum choose --no-limit "Stack Laravel (PHP 8.4 + MariaDB)" "Stack Python (Poetry + Flask/Flet)" "Neovim Pro IDE" "Segurança BTRFS (Snapshots)" "Boot Visual (Plymouth)")
 
 # 4. INSTALAÇÃO DE PACOTES
-echo -e "${GREEN}--> Verificando arquitetura e drivers...${NC}"
-ARCH=$(uname -m)
-if [ "$ARCH" != "x86_64" ]; then
-    echo "AVISO: Este setup foi otimizado para x86_64 (AMD). Prossiga com cautela em $ARCH."
-    sleep 2
+echo -e "${GREEN}--> Analisando dependências para a sua seleção...${NC}"
+
+# Função para extrair pacotes de uma secção do packages.txt
+get_packages() {
+    # Extrai linhas entre o comentário da secção e a próxima linha em branco
+    # Remove comentários e linhas vazias
+    sed -n "/# $1/,/^\s*$/p" packages.txt | grep -vE "^\s*#|^\s*$" | tr "\n" " "
+}
+
+# 4.1 Construção da lista de pacotes (Base)
+CORE_SECTIONS=("Hyprland Core" "Interface & Tools" "File System Support" "AMD Graphics" "Fonts & Appearance" "Audio & Network" "Utilities" "Programs" "v2.0 Management" "Development - Tools")
+PACKAGES=""
+
+for section in "${CORE_SECTIONS[@]}"; do
+    PACKAGES+="$(get_packages "$section") "
+done
+
+# 4.2 Adição de pacotes baseados na escolha do utilizador
+if [[ $CHOICES == *"Stack Laravel"* ]]; then
+    echo -e "${BLUE}[+] Adicionando pacotes Laravel/PHP...${NC}"
+    PACKAGES+="$(get_packages "Development - Web (Laravel)") "
 fi
 
-# Forçar instalação de drivers base via pacman para evitar que o yay tente pacotes AUR (-git/rk35xx)
-echo -e "${GREEN}--> Garantindo drivers gráficos oficiais AMD...${NC}"
-# Remove cache problemático se existir
-rm -rf ~/.cache/yay/mesa-rk35xx-git 2>/dev/null
-sudo pacman -S --needed --noconfirm mesa vulkan-radeon libva-utils vdpauinfo
+if [[ $CHOICES == *"Stack Python"* ]]; then
+    echo -e "${BLUE}[+] Adicionando pacotes Python/Poetry...${NC}"
+    PACKAGES+="$(get_packages "Development - Python (Flask/Flet)") "
+fi
 
-echo -e "${GREEN}--> Instalando pacotes do sistema...${NC}"
-PACKAGES=$(grep -vE "^\s*#" packages.txt | tr "\n" " ")
-# Usar pacman primeiro para o que estiver nos repositórios oficiais (Exclusão explícita de mesa-rk35xx-git)
-# shellcheck disable=SC2046
+if [[ $CHOICES == *"Neovim Pro IDE"* ]]; then
+    echo -e "${BLUE}[+] Adicionando pacotes Neovim & LSP...${NC}"
+    PACKAGES+="$(get_packages "IDE & Editor (Neovim Pro)") "
+fi
+
+if [[ $CHOICES == *"Segurança BTRFS"* ]]; then
+    echo -e "${BLUE}[+] Adicionando pacotes Snapper/BTRFS...${NC}"
+    PACKAGES+="$(get_packages "System Resilience & Boot") "
+fi
+
+if [[ $CHOICES == *"Boot Visual"* ]]; then
+    # Plymouth já está no System Resilience, mas garantimos aqui se necessário
+    if [[ $CHOICES != *"Segurança BTRFS"* ]]; then
+        PACKAGES+="plymouth plymouth-theme-arctic-nord-git "
+    fi
+fi
+
+# Instalação via Pacman (Repositórios Oficiais)
+echo -e "${GREEN}--> Instalando pacotes via Pacman...${NC}"
 sudo pacman -S --needed --noconfirm $(pacman -Slq | grep -Fwxf <(echo "$PACKAGES" | tr ' ' '\n')) 2>/dev/null
 
-# O resto (AUR) é tratado pelo yay, garantindo que não pegamos o mesa-rk35xx
+# Instalação via YAY (AUR)
+echo -e "${GREEN}--> Instalando pacotes via YAY (AUR)...${NC}"
 yay -S --noconfirm --needed --provides=false $PACKAGES
 
 # 4.1 Criar pastas padrão do sistema
