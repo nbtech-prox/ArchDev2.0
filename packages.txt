@@ -23,6 +23,8 @@ waybar
 kitty
 firefox
 rofi
+rofi-calc
+rofi-emoji
 dunst
 waypaper
 python-pillow

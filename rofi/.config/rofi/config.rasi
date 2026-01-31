@@ -1,11 +1,19 @@
 configuration {
-    modi: "drun,run";
+    modi: "drun,run,window,calc,emoji";
     show-icons: true;
     display-drun: "󰀻 Apps";
     display-run: "󰁔 Run";
+    display-window: "󱂬 Windows";
+    display-calc: "󰃬 Calc";
+    display-emoji: "󰞅 Emoji";
     drun-display-format: "{name}";
     font: "JetBrainsMono Nerd Font 12";
     terminal: "kitty";
+    
+    /* Configuração para fechar ao clicar fora */
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
 }
 
 @theme "/dev/null"
