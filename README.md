@@ -43,6 +43,8 @@ Utilizando uma arquitetura modular baseada em **GNU Stow**, o seu ambiente de tr
 ### Core
 - **Window Manager**: Hyprland (Wayland puro)
 - **Barra/Painel**: Waybar (Custom CSS)
+- **Menu/Plugins**: Rofi (Apps, Calc, Emoji, Window Switcher)
+- **Wallpapers**: Waypaper + SWWW
 - **Editor**: Neovim (Lazy.nvim, LSP, Treesitter)
 - **Terminal**: Kitty com ZSH + Starship Prompt
 - **Boot**: Systemd-boot + Plymouth Arctic Nord
@@ -83,13 +85,20 @@ chmod +x install.sh
 | `Super + Enter` | Abrir Terminal (Kitty) |
 | `Super + B` | Abrir Browser (Firefox) |
 | `Super + E` | Abrir Explorador de Ficheiros (Thunar) |
-| `Super + W` | Lançador de Aplicações (Wofi) |
+| `Super + W` | Lançador de Aplicações (**Rofi**) |
+| `Super + V` | **Clipboard Master** (Histórico de Cópia) |
+| `Super + C` | **Calculadora Científica** (Plugin Rofi) |
+| `Super + .` | **Seletor de Emojis** (Plugin Rofi) |
+| `Alt + Tab` | **Alternador de Janelas** (Window Switcher) |
+| `Super + M` | Abrir **Spotify Premium** (Custom Nord Theme) |
+| `Super + Alt + W` | Seletor de Wallpapers (**Waypaper**) |
 | `Super + Q` | Fechar Janela Ativa |
 | `Super + X` | Menu de Energia (Log out, Reboot, Shutdown) |
 | `Super + Esc` | Bloquear Ecrã (Hyprlock) |
 | `Super + Setas` | Mover Foco entre Janelas |
 | `Super + Ctrl + Setas` | Carrossel de Áreas de Trabalho (Workspaces) |
 | `PrintScreen` | Screenshot da Região para o Clipboard |
+| `Media Keys` | Play, Pause, Next, Prev (Spotify/Playerctl) |
 
 ---
 
@@ -163,6 +172,14 @@ Se ativar a segurança BTRFS no instalador:
     7.  `Reload privilege tables now?`: Pressione **Y**.
 *   **Firewall**: O **UFW** já está ativo e configurado para bloquear tudo, exceto SSH e as portas de desenvolvimento (`8000`, `8080`, `5000`, `8550`).
 *   **Firefox**: Instale a extensão [Nordic Theme](https://addons.mozilla.org/en-US/firefox/addon/nordic-dark/) para consistência total.
+*   **Spotify & Spicetify**: 
+    - O Spotify já vem com o tema **Nordic-Dark** aplicado via Spicetify.
+    - Se o tema não aparecer após a primeira instalação: `spicetify backup apply`.
+    - Atalhos de média já configurados nativamente.
+*   **Wallpaper Picker**: Use `Super + Alt + W` para abrir o **Waypaper**, selecione a imagem e clique em "Apply". O setup guarda a sua escolha automaticamente.
+*   **Rofi Superpowers**: 
+    - Calculadora: Aceita funções matemáticas, conversões e o `Enter` copia o resultado.
+    - Clipboard: Lista os últimos 50 itens copiados (textos e links).
 *   **Serviços**: Se não usou o instalador, ative a base: `sudo systemctl enable --now NetworkManager bluetooth sddm ufw`.
 
 ---
