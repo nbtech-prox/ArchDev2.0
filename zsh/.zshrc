@@ -65,6 +65,7 @@ alias edit='nvim'
 alias reload-config='cd ~/.dotfiles && stow -R */ && cd -'
 alias lg='lazygit'
 alias ld='lazydocker'
+alias sys='btop'
 
 # v2.5 Bubble (Hermetic Env Creator)
 bubble() {

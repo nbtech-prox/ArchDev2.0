@@ -143,6 +143,7 @@ A tecla **Leader** é o `Espaço`.
 | `ld` | Abrir **Lazydocker** (Painel de Containers) |
 | `reload-config` | Re-sincronizar Dotfiles via Stow (Pasta Oculta) |
 | `ls / ll / la` | Listagem rica com ícones (`eza`) |
+| `sys` | **btop** (Monitorização Premium Nord) |
 | `cat` | Visualizador com cores (`bat`) |
 | `Ctrl + R` | Pesquisa Inteligente no Histórico (**FZF**) |
 
