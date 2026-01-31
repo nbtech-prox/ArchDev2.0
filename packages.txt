@@ -22,8 +22,10 @@ sddm-sugar-candy-git
 waybar
 kitty
 firefox
-wofi
+rofi
 dunst
+waypaper
+python-pillow
 swww
 udiskie
 thunar
