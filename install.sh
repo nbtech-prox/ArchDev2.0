@@ -83,10 +83,12 @@ fi
 
 # Instalação via Pacman (Repositórios Oficiais)
 echo -e "${GREEN}--> Instalando pacotes via Pacman...${NC}"
+# shellcheck disable=SC2046
 sudo pacman -S --needed --noconfirm $(pacman -Slq | grep -Fwxf <(echo "$PACKAGES" | tr ' ' '\n')) 2>/dev/null
 
 # Instalação via YAY (AUR)
 echo -e "${GREEN}--> Instalando pacotes via YAY (AUR)...${NC}"
+# shellcheck disable=SC2086
 yay -S --noconfirm --needed --provides=false $PACKAGES
 
 # 4.1 Criar pastas padrão do sistema
