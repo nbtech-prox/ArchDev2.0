@@ -47,6 +47,7 @@ Utilizando uma arquitetura modular baseada em **GNU Stow**, o seu ambiente de tr
 - **Wallpapers**: Waypaper + SWWW
 - **Editor**: Neovim (Lazy.nvim, LSP, Treesitter)
 - **Terminal**: Kitty com ZSH + Starship Prompt
+- **Imagens**: imv (Visualizador Wayland ultra-rápido)
 - **Boot**: Systemd-boot + Plymouth Arctic Nord
 
 ### Development Ready (Últimas Versões)
@@ -86,26 +87,66 @@ chmod +x install.sh
 
 ## ⌨️ Domínio do Sistema (Guia de Atalhos Master)
 
-### 🖥️ Interface & Janelas (Hyprland)
+### 🖥️ Aplicações Principais
 | Atalho | Ação |
 | :--- | :--- |
-| `Super + Enter` | Abrir Terminal (Kitty) |
-| `Super + B` | Abrir Browser (Firefox) |
-| `Super + E` | Abrir Explorador de Ficheiros (Thunar) |
+| `Super + Enter` | Abrir Terminal (**Kitty**) |
+| `Super + B` | Abrir Navegador (**Firefox**) |
+| `Super + E` | Abrir Explorador de Ficheiros (**Thunar**) |
+| `Super + A` | Abrir IDE (**Antigravity**) |
+| `Super + M` | Abrir **Spotify** (Nord Theme) |
 | `Super + W` | Lançador de Aplicações (**Rofi**) |
+
+### 🛠️ Utilitários & Ferramentas
+| Atalho | Ação |
+| :--- | :--- |
 | `Super + V` | **Clipboard Master** (Histórico de Cópia) |
 | `Super + C` | **Calculadora Científica** (Plugin Rofi) |
 | `Super + .` | **Seletor de Emojis** (Plugin Rofi) |
 | `Alt + Tab` | **Alternador de Janelas** (Window Switcher) |
-| `Super + M` | Abrir **Spotify Premium** (Custom Nord Theme) |
 | `Super + Alt + W` | Seletor de Wallpapers (**Waypaper**) |
-| `Super + Q` | Fechar Janela Ativa |
-| `Super + X` | Menu de Energia (Log out, Reboot, Shutdown) |
-| `Super + Esc` | Bloquear Ecrã (Hyprlock) |
+| `Super + O` | Menu de Energia (**wlogout**) |
+| `Super + Esc` | Bloquear Ecrã (**Hyprlock**) |
+| `Super + Shift + R` | **Reiniciar Interface** (Reload Hyprland/Waybar) |
+
+### 📸 Capturas de Ecrã (Screenshots)
+| Atalho | Ação |
+| :--- | :--- |
+| `PrintScreen` | Capturar Região -> **Clipboard** |
+| `Shift + Print` | Capturar Ecrã Inteiro -> **Clipboard** |
+| `Ctrl + Print` | Capturar Região -> **Ficheiro** (`~/Pictures`) |
+
+### 🪟 Gestão de Janelas
+| Atalho | Ação |
+| :--- | :--- |
+| `Super + Q` | **Fechar** Janela Ativa |
+| `Super + F` | Alternar **Ecrã Inteiro** (Fullscreen) |
+| `Super + V` | Alternar Modo **Flutuante** (Floating) |
+| `Super + P` | Alternar modo **Pseudo-tiling** |
+| `Super + J` | Rodar **Split** (Dwindle Layout) |
 | `Super + Setas` | Mover Foco entre Janelas |
-| `Super + Ctrl + Setas` | Carrossel de Áreas de Trabalho (Workspaces) |
-| `PrintScreen` | Screenshot da Região para o Clipboard |
-| `Media Keys` | Play, Pause, Next, Prev (Spotify/Playerctl) |
+| `Super + Rato Esq` | **Mover** Janela (Arrastar) |
+| `Super + Rato Dir` | **Redimensionar** Janela |
+
+### 🧭 Navegação & Workspaces
+| Atalho | Ação |
+| :--- | :--- |
+| `Super + Tab` | Voltar à **Área de Trabalho anterior** |
+| `Super + Ctrl + ←/→` | Mudar Área de Trabalho (Sequencial) |
+| `Super + Ctrl + H/L` | Mudar Área de Trabalho (Vim-style) |
+| `Super + 1-0` | Ir para Área de Trabalho **específica** (1-10) |
+| `Super + Shift + ←/→` | **Mover Janela** + Seguir para Workspace Vizinho |
+| `Super + Shift + 1-0` | Mover Janela para Workspace específico |
+| `Super + S` | Abrir/Fechar **Workspace Especial** (Scratchpad) |
+| `Super + Shift + S` | Enviar Janela para o Workspace Especial |
+
+### 🎵 Multimédia & Áudio
+| Atalho | Ação |
+| :--- | :--- |
+| `Vol + / Vol -` | Ajustar Volume (com Feedback Visual) |
+| `Mute` | Silenciar Áudio |
+| `Play / Pause` | Reproduzir ou Pausar Música (**Playerctl**) |
+| `Next / Prev` | Avançar ou Retroceder Faixa |
 
 ---
 
