@@ -92,6 +92,7 @@ jq
 # Programs
 mpv
 inkscape
+imv
 
 # Development - Web (Laravel)
 php

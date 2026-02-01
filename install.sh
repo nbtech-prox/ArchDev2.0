@@ -179,6 +179,10 @@ fi
 sudo systemctl enable paccache.timer # Limpeza automática de cache
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
 
+# --- Aplicações Padrão (MIME) ---
+echo -e "${GREEN}--> Definindo aplicações padrão...${NC}"
+xdg-mime default imv.desktop image/png image/jpeg image/gif image/webp image/tiff image/bmp
+
 # --- Configuração Especial: Spicetify (Spotify Premium Skin) ---
 if command -v spicetify &> /dev/null; then
     echo -e "${GREEN}--> Configurando Spicetify...${NC}"
