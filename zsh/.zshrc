@@ -5,10 +5,6 @@ export PATH="$HOME/.config/composer/vendor/bin:$HOME/.local/bin:$PATH"
 # To keep it safe, I recommend putting it in a file ~/.gemini_key and sourcing it:
 [ -f ~/.gemini_key ] && source ~/.gemini_key
 
-# CONTEXT7_API_KEY (Get one at https://context7.com/dashboard)
-# Put it in ~/.context7_key and source it:
-#[ -f ~/.context7_key ] && source ~/.context7_key
-
 # Enable Powerlevel10k or Starship instant prompt if needed
 # ...
 
